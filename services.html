@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Painting services offered by Orantes Painting in Las Vegas" />
+    <title>Our Services | Orantes Painting Company</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+</head>
+<body>
+  <a href="#main" class="skipLink">Skip to main content</a>
+  <header class="header">
+    <nav aria-label="Main navigation">
+      <a href="index.html"><img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo featuring a paint spray gun on the left, a house with a peaked roof in the center with gold and navy blue accents, and the company name Orantes Painting LLC in large navy and gold text. The logo conveys professionalism and trust for a residential painting service."></a>
+      <div class="menu" id="navLinks">
+        <button class="fa-solid fa-xmark" onclick="hideMenu()" aria-label="Close menu"></button>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+        </ul>
+      </div>
+      <button class="fa-solid fa-bars" onclick="showMenu()" aria-label="Open menu" aria-expanded="false" id="menuToggle"></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="servicesIntro">
+      <span class="serviceEyebrow">What We Do</span>
+      <h1 class="serviceTitle" style="white-space: normal;">Our Services</h1>
+      <p class="sectionLead">See the real results behind every project.</p>
+    </section>
+
+
+    <!-- ===== INTERIOR PAINTING ===== -->
+    <section class="serviceDetail" id="interior">
+      <div class="serviceDetailHeader">
+        <h2>Interior Painting</h2>
+        <p></p>
+      </div>
+
+      <div class="baSlider" data-service="interior">
+        <div class="baSliderInner">
+          <img class="baAfter" src="images/interior/IMG_1147.JPEG" alt="Interior painting after">
+          <div class="baBeforeWrap">
+            <img class="baBefore" src="images/interior/IMG_before1.jpeg" alt="Interior painting before">
+          </div>
+          <div class="baHandle" 
+              role="slider" 
+              tabindex="0"
+              aria-label="Before and after image comparison"
+              aria-valuemin="0" 
+              aria-valuemax="100" 
+              aria-valuenow="50">
+            <div class="baHandleCircle"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i></div>
+          </div>
+        </div>
+        <div class="baLabels"><span>Before</span><span>After</span></div>
+      </div>
+
+      <div class="processSection">
+        <h3>See the Process</h3>
+        <div class="processGrid">
+          <div class="processPhoto">
+            <img src="images/interior/IMG_1073.JPEG" alt="Open-plan living room and kitchen prepared for interior painting, with plastic sheeting covering the tile floor, kitchen island, countertops, and appliances. A fireplace, ceiling fan, recessed lights, doors, and an arched doorway are visible in the wider space. The orderly room is shown mid-project; no people or text are visible.">
+            <p class="processCaption">Room prep</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/interior/IMG_1146.JPEG" alt="Spacious kitchen undergoing interior painting, with a tall step ladder beneath a ceiling fan and partially painted ceiling. Open wooden cabinets line the back wall around a refrigerator, range, sink, and island; recessed lights, skylights, tiled floors, and a doorway to another room are visible. No people or text are visible.">
+            <p class="processCaption">Painting in progress</p>
+          </div>
+          <!--video-->
+          <div class="processPhoto processPhotoWide">
+            <video controls controlList="nofullscreen" playsinline preload="metadata" poster="images/interior/IMG_1147.JPEG"  aria-label="Final walkthrough video of completed interior painting project">
+              <source src="images/interior/walkthrough.mp4" type="video/mp4">
+              Your browser doesn't support embedded video.
+            </video>
+            <p class="processCaption">Final walkthrough</p>
+          </div>
+          <!-- add more from your 14 full-interior + 6 teal room + 3 front door photos -->
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- ===== EXTERIOR PAINTING ===== -->
+    <section class="serviceDetail" id="exterior">
+      <div class="serviceDetailHeader">
+        <h2>Exterior Painting</h2>
+        <p>In 2025, my crew and I painted this exterior near Anthem, covering the body, fascia, pop-outs, and doors.</p>
+      </div>
+
+      <div class="baSlider" data-service="exterior">
+        <div class="baSliderInner">
+          <img class="baAfter" src="images/exterior/IMG_2718.jpg" alt="Exterior painting after">
+          <div class="baBeforeWrap">
+            <img class="baBefore" src="images/exterior/IMG_2602.jpg" alt="Exterior painting before">
+          </div>
+          <div class="baHandle" 
+              role="slider" 
+              tabindex="0"
+              aria-label="Drag to compare before and after exterior painting photos"
+              aria-valuemin="0" 
+              aria-valuemax="100" 
+              aria-valuenow="50">
+            <div class="baHandleCircle"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i></div>
+          </div>
+        </div>
+        <div class="baLabels"><span>Before</span><span>After</span></div>
+      </div>
+
+      <div class="processSection">
+        <h3>See the Process</h3>
+        <div class="processGrid">
+          <div class="processPhoto">
+            <img src="images/exterior/house-1.jpg" alt="Stucco home with tiled roofs, decorative eaves, windows, and a dark open doorway, viewed from a landscaped courtyard. A ladder leans against the house, suggesting exterior maintenance or painting in progress. Gravel beds, desert plants, concrete walkways, and a metal gate surround the home beneath a bright blue sky with scattered clouds, creating a calm, sunlit atmosphere. No people or text are visible.">
+            <p class="processCaption">Touchups the body</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/exterior/house-2.jpg" alt="Upward view of a stucco home exterior with textured walls, several windows, wall-mounted lights, decorative roof eaves, and a gutter. The sunlit facade is bordered by leafy trees and a bright blue sky, creating a calm outdoor setting. No people or text are visible.">
+            <p class="processCaption">Touching up Fascia</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/exterior/house-3.jpg" alt="Worker kneeling beside painting equipment and supplies outside an open two-car garage, with a stucco home, roof eaves, desert landscaping, neighboring homes, and a clear blue sky in the background. The garage number 7 is visible on the wall, and the scene has an active, practical worksite atmosphere.">
+            <p class="processCaption">Cleanup</p>
+          </div>
+          <!-- add more .processPhoto blocks here as you sort your remaining exterior/flat-roof/refresh photos -->
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- ===== CABINET REFINISHING ===== -->
+    <section class="serviceDetail" id="cabinets">
+      <div class="serviceDetailHeader">
+        <h2>Cabinet Refinishing</h2>
+        <p>This was a cabinet project for a satisfied homeowner we'd previously painted the house for a few years ago.</p>
+      </div>
+
+      <div class="baSlider" data-service="cabinets">
+        <div class="baSliderInner">
+          <img class="baAfter" src="images/cabinet/cabinet-refinishing.jpg" alt="Cabinet refinishing after">
+          <div class="baBeforeWrap">
+              <img class="baBefore" src="images/cabinet/cabinet-before.jpg" alt="Unpainted wooden cabinet doors and drawer fronts with visible sanding marks are gathered on a tiled floor and leaned against a white wall during cabinet refinishing; the quiet work area has a practical, in-progress feel.">
+          </div>
+          <div class="baHandle" 
+              role="slider" 
+              tabindex="0"
+              aria-label="Drag to compare before and after exterior painting photos"
+              aria-valuemin="0" 
+              aria-valuemax="100" 
+              aria-valuenow="50">
+            <div class="baHandleCircle"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i></div>
+          </div>
+        </div>
+        <div class="baLabels"><span>Before</span><span>After</span></div>
+      </div>
+
+      <div class="processSection">
+        <h3>See the Process</h3>
+        <div class="processGrid">
+          <div class="processPhoto">
+            <img src="images/cabinet/step-1pre.jpg" alt="Cabinet finish coat">
+            <p class="processCaption">Cleaning & Prepping</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/cabinet/step-1.jpg" alt="Cabinet prep">
+            <p class="processCaption">Sanding all the doors</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/cabinet/step-2.jpg" alt="Kitchen cabinets coated in green paint and masked with protective paper; plastic sheeting covers the countertops and floor, with a skylight above the work area.">
+            <p class="processCaption">Second coat of paint after applying primer</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/cabinet/step-3.jpg" alt="Muted green kitchen cabinets and a matching tall pantry door with raised-panel fronts surround a tiled kitchen area. A skylight, countertops, wall outlets, and an open doorway to an adjoining room are visible; the clean, finished space feels calm and practical. No people or text are visible.">
+            <p class="processCaption">End Results</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/cabinet/step-4.jpg" alt="Finished muted green kitchen cabinets and drawers wrap around a corner beneath a tiled countertop, with a dishwasher, sink, cleaning supplies, and boxes visible in the surrounding kitchen. The tidy finished space has a calm, practical feel; no people or text are visible.">
+            <p class="processCaption">End Results</p>
+          </div>
+          <!-- add more from your 8 kitchen cabinet photos -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMMERCIAL PAINTING ===== -->
+    <section class="serviceDetail" id="commercial">
+      <div class="serviceDetailHeader">
+        <h2>Commercial Painting</h2>
+        <p>This restaurant needed its existing design covered and refreshed. We repainted the wall panels and benches, along with the AC ducts throughout the space, to give it a clean, finished look.</p>
+      </div>
+ 
+      <div class="processSection">
+        <h3>See the Process</h3>
+        <div class="processGrid">
+          <div class="processPhoto">
+            <img src="images/commercial/primer.jpg" alt="Restaurant interior prepared for painting, with walls and service counters covered in protective plastic and the floor fully draped. Exposed drywall is visible in the foreground, while a worker stands near a ladder beneath purple ventilation ducts and pendant lights. The space feels orderly and ready for renovation; no readable text is visible.">
+            <p class="processCaption">Applying 2 coats of primer</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/commercial/wall-paint.jpg" alt="Restaurant interior being prepared for painting, with white paneled walls, dark exposed ceiling ducts, work lights, ladders, and equipment throughout the space. Counters and the floor are covered with protective plastic, and a worker sits at the right edge of the scene. The renovation area feels busy but orderly; no readable text is visible.">
+            <p class="processCaption">Painting in progress</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/commercial/second-coat.jpg" alt="Two painters work from a blue Genie GS-1930 lift, applying paint to white paneled restaurant walls. Plastic sheeting covers counters and equipment in the foreground, while dark exposed ducts, pendant lights, and work lights fill the ceiling above. The busy renovation scene feels focused and orderly; the visible equipment reads Genie GS-1930, with no other readable text.">
+            <p class="processCaption">Second coat of painting</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/commercial/process.jpg" alt="Restaurant interior prepared for painting, with counters, equipment, and the floor covered in protective plastic. A green step ladder, paint supplies, buckets, and tools stand in the foreground beneath exposed ceiling ducts and pendant lights. The bright, spacious work area appears orderly and ready for renovation; faint projected text is visible on the rear windows but is not legible.">
+            <p class="processCaption">Giving the restaurant life</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/commercial/benches.jpg" alt="Dark-painted restaurant wall panels and bench surfaces beside black door or window trim. Plastic sheeting protects the nearby floor and window during the work, while a wood-paneled area is visible at the right. The renovation setting appears careful and orderly; no readable text is visible.">
+            <p class="processCaption">Painting the benches</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/commercial/front-door-r.jpg" alt="Restaurant entrance with a dark framed glass door and adjacent windows masked with brown protective paper and blue painters tape during painting preparation. A drop cloth covers the sidewalk at the base of the entrance, creating a neat, work-focused renovation scene. Partially visible text on the paper includes PUBLIC and BUSINESS HOURS, but the remaining wording is obscured.">
+            <p class="processCaption">Painting the front door</p>
+          </div>
+          <div class="processPhoto">
+            <img src="images/commercial/final-color.jpg" alt="Freshly painted pale beige restaurant wall beside large windows covered with blue-tinted protective plastic. Drop cloths cover the floor, and a paint bucket and covered fixtures remain along the work area, showing the space near the end of a careful renovation. The warm, orderly scene feels clean and calm; faint text appears through the window covering but is not readable.">
+            <p class="processCaption">Finished look using pure white eggshell</p>
+          </div>
+          <!-- add more from your 10 restaurant photos -->
+        </div>
+      </div>
+    </section>
+
+
+    <div class="buttonContainer">
+      <a href="booking.html" class="contactButton"><h3>Get a Free Quote</h3></a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footerBox">
+      <div class="footerLogo">
+        <img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo showing a paint spray gun beside a stylized house roof and chimney, with the text ORANTES PAINTING LLC below. The navy blue and gold design on a white background presents a professional painting business identity.">
+      </div>
+      <div class="contactInfo">
+        <div class="oneLine">
+          <a href="tel:17029562409">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span>(702) 956-2409</span>
+          </a>
+        </div>
+        <div class="oneLine">
+          <a href="mailto:Orantespaintingllc@gmail.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span>Orantespaintingllc@gmail.com</span>
+          </a>
+        </div>
+        <div class="oneLine">
+          <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+          <span>License #0095838</span>
+        </div>
+      </div>  
+    </div>
+    <section class="bottomFooter">
+      <h3>Business Hours</h3>
+      <div>
+        <ul>
+          <li><span><i class="fa-regular fa-clock" aria-hidden="true"></i></span> Monday-Saturday: 7am to 5pm</li>
+          <li><span><i class="fa-regular fa-clock" aria-hidden="true"></i></span> Sunday: Closed</li>
+        </ul>
+      </div>
+      <h3>Service Area</h3>
+      <div class="serviceArea">
+        <ul>
+          <li><p>Las Vegas, NV</p></li>
+        </ul>
+      </div>
+      <h3>Quick Links</h3>
+      <div class="quickLinks">
+        <ul>
+          <li><a href="index.html"><p>Home</p></a></li>
+          <li><a href="services.html"><p>Services</p></a></li>
+          <li><a href="gallery.html"><p>Gallery</p></a></li>
+          <li><a href="review.html"><p>Reviews</p></a></li>
+          <li><a href="booking.html"><p>Book Now</p></a></li>
+          <li><a href="privacy-policy.html"><p>Privacy Policy</p></a></li>
+        </ul>   
+      </div>
+
+      <h3>Follow Us On</h3>
+      <div class="socialIcon">
+        <!--add Javascript to open in a new page-->
+        <div>
+          <a href="https://www.instagram.com/orantes_painting_llc/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        </div>
+        <div>
+          <a href="https://m.facebook.com/profile.php?id=61592579204648" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+        </div>
+        <div>
+          <a href="https://www.tiktok.com/@orantespaintingllc?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Tiktok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section> 
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

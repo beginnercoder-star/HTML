@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+      name="description"
+      content="Family-owned interior, exterior, cabinet, and commercial painting company serving Las Vegas, Summerlin, Henderson & North Las Vegas. Licensed, bonded, free quotes."
+    />
+    <title>Orantes Painting Company | Las Vegas Painting Contractor</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "PaintingContractor"],
+      "name": "Orantes Painting LLC",
+      "image": "https://YOURDOMAIN.com/images/orantes_painting_transparent.png",
+      "telephone": "+17029562409",
+      "email": "Orantespaintingllc@gmail.com",
+      "url": "https://YOURDOMAIN.com",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Las Vegas",
+        "addressRegion": "NV",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Las Vegas" },
+        { "@type": "Place", "name": "Summerlin" },
+        { "@type": "City", "name": "North Las Vegas" },
+        { "@type": "City", "name": "Henderson" }
+      ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "07:00",
+        "closes": "17:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/orantes_painting_llc/",
+        "https://m.facebook.com/profile.php?id=61592579204648",
+        "https://www.tiktok.com/@orantespaintingllc"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "19"
+      }
+    }
+
+    </script>
+</head>
+<body> 
+  
+  <a href="#main" class="skipLink">Skip to main content</a>
+  <header class="header">
+    <nav aria-label="Main navigation">
+      <a href="index.html"><img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo featuring a paint spray gun on the left, a house with a peaked roof in the center with gold and navy blue accents, and the company name Orantes Painting LLC in large navy and gold text. The logo conveys professionalism and trust for a residential painting service."></a>
+      <div class="menu" id="navLinks">
+        <button class="fa-solid fa-xmark" onclick="hideMenu()" aria-label="Close menu"></button>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+        </ul>
+      </div>
+      <button class="fa-solid fa-bars" onclick="showMenu()" aria-label="Open menu" aria-expanded="false" id="menuToggle"></button>
+    </nav>
+  </header>
+  <main id="main">
+    <div class="heroBanner">
+      <div class="textBox">
+        <h1 class="offerBlock">
+          <span class="offerTop">We offer</span>
+          <span class="offerWord"><span id="typedWord" aria-hidden="true"></span><span class="cursor" aria-hidden="true"></span></span>
+          <span class="offerBottom">services you can trust</span>
+        </h1>
+
+        <a href="booking.html" class="quoteButton">Get a Free Quote</a>
+      </div>
+    </div> 
+<!--Trust Badges-->
+    <section class="trustBadges" aria-label="Company credentials">
+      <div class="badgeRow badgeTop">
+        <div class="badge">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check-icon lucide-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span>
+            <p class="licenseNum">License #0095838</p>
+          </span>
+        </div>
+
+        <div class="badge">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M475-160q4 0 8-2t6-4l328-328q12-12 17.5-27t5.5-30q0-16-5.5-30.5T817-607L647-777q-11-12-25.5-17.5T591-800q-15 0-30 5.5T534-777l-11 11 74 75q15 14 22 32t7 38q0 42-28.5 70.5T527-522q-20 0-38.5-7T456-550l-75-74-175 175q-3 3-4.5 6.5T200-435q0 8 6 14.5t14 6.5q4 0 8-2t6-4l136-136 56 56-135 136q-3 3-4.5 6.5T285-350q0 8 6 14t14 6q4 0 8-2t6-4l136-135 56 56-135 136q-3 2-4.5 6t-1.5 8q0 8 6 14t14 6q4 0 7.5-1.5t6.5-4.5l136-135 56 56-136 136q-3 3-4.5 6.5T454-180q0 8 6.5 14t14.5 6Zm-1 80q-37 0-65.5-24.5T375-166q-34-5-57-28t-28-57q-34-5-56.5-28.5T206-336q-38-5-62-33t-24-66q0-20 7.5-38.5T149-506l232-231 131 131q2 3 6 4.5t8 1.5q9 0 15-5.5t6-14.5q0-4-1.5-8t-4.5-6L398-777q-11-12-25.5-17.5T342-800q-15 0-30 5.5T285-777L144-635q-9 9-15 21t-8 24q-2 12 0 24.5t8 23.5l-58 58q-17-23-25-50.5T40-590q2-28 14-54.5T87-692l141-141q24-23 53.5-35t60.5-12q31 0 60.5 12t52.5 35l11 11 11-11q24-23 53.5-35t60.5-12q31 0 60.5 12t52.5 35l169 169q23 23 35 53t12 61q0 31-12 60.5T873-437L545-110q-14 14-32.5 22T474-80Zm-99-560Z"/></svg>
+          <span><p>Bonded</p></span>
+        </div>
+      </div>
+
+      <div class="badgeRow badgeBottom">
+        <div class="badge">
+          <i class="fa-regular fa-house" aria-hidden="true"></i>
+          <span><p>Locally-Owned</p></span>
+        </div>
+        
+        <div class="badge">
+          <span><p lang="es">Hablamos Espa&ntilde;ol</p></span>
+        </div>
+      </div> 
+    </section>
+
+<!--Start of Credibility Section-->
+    <section class="credibility">
+     <div class="credibilityIntro">
+        <span class="serviceEyebrow">Why Homeowners Trust Us</span>
+        <p class="sectionLead">More than a paint job — a promise of quality</p>
+     </div>
+
+      <div class="statsStrip">
+        <div class="statItem">
+          <span class="statNumber">10+</span>
+          <span class="statLabel">Years Painting Las Vegas</span>
+        </div>
+        <div class="statItem">
+          <span class="statNumber">100+</span>
+          <span class="statLabel">Homes Completed</span>
+        </div>
+        <div class="statItem">
+          <span class="statNumber">5.0★</span>
+          <span class="statLabel">Google Rating</span>
+        </div>
+      </div>
+
+<!--Start of Testimonials-->
+      <section class="testimonials" aria-label="Customer testimonials">
+        <span class="serviceEyebrow">What Customers Say</span>
+        <h2 class="serviceTitle">Real Reviews,<br> Real Results</h2>
+
+        <div class="reviewActions">
+          <a href="https://share.google/DlCSWdZabOdT14fZP" target="_blank" rel="noopener noreferrer" class="googleBadge">
+            <span class="googleStars"><span aria-hidden="true">5.0 ★★★★★</span><span class="sr-only">5 out of 5 stars on Google</span></span>
+          </a>
+
+          <a href="https://search.google.com/local/writereview?placeid=ChIJsfLfg5bqwEoRcsvJ35HPiZQ&source=g.page.m.ia._&laa=nmx-review-solicitation-ia2" target="_blank" rel="noopener noreferrer" class="leaveReviewButton">
+          Leave a Review
+          </a>
+        </div>
+        
+        <div class="marqueeWrapper">
+          <div class="marqueeTrack" aria-hidden="true">
+
+            <!-- Set 1 -->
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">Great experience! The painting company did an amazing job, professional, friendly, and the results look beautiful. Highly recommend!</p>
+              <p class="reviewAuthor">— Jenny S.</p>
+            </div>
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">We had an amazing experience with Orantes Painting LLC! They painted our home along with our kitchen cabinets, doors, and baseboards, and the quality of their work exceeded our expectations.</p>
+              <p class="reviewAuthor">— Steve E.</p>
+            </div>
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">Orantes Painting LLC is the best! I have used their services several times. They have gone above and beyond with exceptional attention to detail. They are communicative, professional, and friendly.</p>
+              <p class="reviewAuthor">— Corene P.</p>
+            </div>
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">One of the best painting companies I've worked with. The owner was very professional and reliable. Will definitely be using them for any work I may need in the future.</p>
+              <p class="reviewAuthor">— David A.</p>
+            </div>
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">Amazing skill! Paint, drywall and everything in between. Great price and couldn't be happier. Hired them a number of times and every time they have been prompt and perfect work.</p>
+              <p class="reviewAuthor">— Andrew S.</p>
+            </div>
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">Jeff and his team are excellent. Their work, professionalism, cleanliness and efficiency is unmatched. The attention to detail and listening to what we wanted helped make the process very smooth.</p>
+              <p class="reviewAuthor">— Janine J.</p>
+            </div>
+
+            <!-- Set 2 — exact duplicate, required for the seamless loop -->
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">Great experience! The painting company did an amazing job, professional, friendly, and the results look beautiful. Highly recommend!</p>
+              <p class="reviewAuthor">— Jenny S.</p>
+            </div>
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">We had an amazing experience with Orantes Painting LLC! They painted our home along with our kitchen cabinets, doors, and baseboards, and the quality of their work exceeded our expectations.</p>
+              <p class="reviewAuthor">— Steve E.</p>
+            </div>
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">Orantes Painting LLC is the best! I have used their services several times. They have gone above and beyond with exceptional attention to detail. They are communicative, professional, and friendly.</p>
+              <p class="reviewAuthor">— Corene P.</p>
+            </div>
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">One of the best painting companies I've worked with. The owner was very professional and reliable. Will definitely be using them for any work I may need in the future.</p>
+              <p class="reviewAuthor">— David A.</p>
+            </div>
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">Amazing skill! Paint, drywall and everything in between. Great price and couldn't be happier. Hired them a number of times and every time they have been prompt and perfect work.</p>
+              <p class="reviewAuthor">— Andrew S.</p>
+            </div>
+            <div class="reviewCard">
+              <div class="reviewStars" aria-hidden="true">★★★★★</div>
+              <span class="sr-only">5 out of 5 stars</span>
+              <p class="reviewText">Jeff and his team are excellent. Their work, professionalism, cleanliness and efficiency is unmatched. The attention to detail and listening to what we wanted helped make the process very smooth.</p>
+              <p class="reviewAuthor">— Janine J.</p>
+            </div>
+
+          </div>
+        </div>
+        <p class="sr-only">Showing a sample of our 5 out of 5 star customer reviews. Visit the Reviews page for the full list.</p>
+      </section>
+<!--Owners Story-->
+      <div class="ownerStory">
+        <div class="ownerPhoto">
+          <img src="images/commercial/unnamed.webp" alt="Owner of Orantes Painting at work">
+        </div>
+        <div class="ownerText">
+          <h3>Meet the Team Behind the Brush</h3>
+          <p>Orantes Painting was built on more than a decade of hands-on work — over 100 homes across the Las Vegas valley, and counting. As a family-run business, every job gets the same care as if it were our own home: clean prep, honest pricing, and a crew that shows up when they say they will.</p>
+        </div>
+      </div>
+
+    </section>
+<!--Start of Services Offered-->
+    <section class="serviceSection">
+      <h2 class="serviceTitle">Our Services</h2>
+      <div class="services" id="servicesCarousel" role="region" aria-label="Our services, scrollable list"> 
+  <!--first card container-->
+        <div class="cardContainer">
+          <!--left side or top image-->
+          <div class="cardImage"> 
+            <a href="services.html#exterior">
+            <img src="images/exterior/IMG_2718.jpg" alt="A two story tan stucco home with a light roof, a front entry, and a white accent wall. A ladder leans against the wall near the door while a concrete walkway leads through desert landscaping with grasses, shrubs, and colorful flowering plants. The sky is bright blue and the scene feels clean, calm, and sunny." class="image">
+            </a>
+          </div>
+
+            <!--right side or bottom-->
+          <div class="service">
+            <h3 class="containerTitle">Exterior Painting</h3>
+            <hr>
+            <a href="services.html#exterior" class="bookingButton">See Before & After</a>
+          </div>
+        </div>
+  <!--second card container-->
+        <div class="cardContainer">
+          <div class="cardImage">
+            <a href="services.html#interior">
+            <img src="images/interior/IMG_1147.JPEG" alt="Bright, freshly painted empty room with white walls, a bay window, additional shuttered windows, white trim, and a tiled floor. Painting tools rest near the center of the room, suggesting recent interior painting work. Daylight fills the clean, quiet, and spacious room." class="image">
+            </a>
+          </div>
+
+          <div class="service">
+            <h3 class="containerTitle">Interior Painting</h3>
+            <hr>
+            <a href="services.html#interior" class="bookingButton">See Before & After</a>
+          </div>
+        </div>
+<!--third card container-->            
+        <div class="cardContainer">
+          <div class="cardImage">
+            <a href="services.html#cabinets">
+              <img src="images/cabinet/cabinet-refinishing.jpg" alt="Refinished gray-green kitchen cabinets surround a microwave, dishwasher, tiled counters, and sink; a cordless drill rests on the counter. The bright kitchen has skylights, under-cabinet lighting, and a tiled floor, creating a clean, practical atmosphere." class="image">
+            </a>
+          </div>
+            
+          <div class="service">
+            <h3 class="containerTitle">Cabinet Refinishing</h3>
+            <hr>
+            <a href="services.html#cabinets" class="bookingButton">See Before & After</a>
+          </div>
+        </div>
+<!--fourth card container-->
+        <div class="cardContainer">
+          <div class="cardImage">
+            <a href="services.html#commercial">
+            <img src="images/commercial/wall-paint.jpg" alt="Commercial interior being prepared for painting, with exposed ceiling ducts, ladders, scaffolding, and walls partially covered in protective plastic. A worker is seated at the right edge in this busy renovation worksite." class="image">
+            </a>
+          </div>
+            
+          <div class="service">
+            <h3 class="containerTitle">Commercial Painting</h3>
+            <hr>
+            <a href="services.html#commercial" class="bookingButton">See the Process</a>
+          </div> 
+        </div>
+      </div>
+<!--Card container dots-->
+      <!--Card container controls-->
+      <div class="carouselControls">
+        <button class="carouselArrow prevArrow" aria-label="Previous service">&#10094;</button>
+
+        <div class="dotContainer" role="tablist" aria-label="Service slides">
+           <span class="dot active" data-index="0" role="tab" aria-label="Slide 1 of 4" aria-selected="true" tabindex="0"></span>
+          <span class="dot" data-index="1" role="tab" aria-label="Slide 2 of 4" aria-selected="false" tabindex="-1"></span>
+          <span class="dot" data-index="2" role="tab" aria-label="Slide 3 of 4" aria-selected="false" tabindex="-1"></span>
+          <span class="dot" data-index="3" role="tab" aria-label="Slide 4 of 4" aria-selected="false" tabindex="-1"></span>
+        </div>
+
+        <button class="carouselArrow nextArrow" aria-label="Next service">&#10095;</button>
+      </div> 
+    </section>
+<!--arrow container-->
+
+<!--Start of Gallery Preview-->
+    <section class="galleryPreview">
+      <h2 class="serviceTitle">Our Gallery</h2>
+      <p class="sectionLead">See the transformations for yourself</p>
+      
+
+      <div class="galleryGrid" role="region" aria-label="Rotating gallery preview">
+        <div class="galleryTrack">
+          <a href="gallery.html" class="galleryItem">
+            <img src="images/exterior/IMG_1434.jpg" alt="Three adjacent single-story suburban homes with pale stucco walls, tiled roofs, garages, concrete driveways, and a strip of green lawn. A pruned tree and palm plants stand in the sunny front yard beneath a clear blue sky, with the photographer shadow visible in the foreground.">
+          </a>
+          <a href="gallery.html" class="galleryItem">
+            <img src="images/exterior/IMG_2718.jpg" alt="A landscaped courtyard surrounding a stucco home, with a concrete walkway leading to the entrance, gravel beds, ornamental grasses, flowering plants, and young trees. Two ladders rest near the house, while bright sunlight and a clear blue sky create a calm outdoor setting.">
+          </a>
+          <a href="gallery.html" class="galleryItem">
+            <img src="images/interior/gallery-image-1.jpg" alt="Bright, freshly painted white interior with a carpeted upstairs landing and staircase descending behind a half wall. Several closed doors, a window with blinds, recessed ceiling lights, a thermostat, and a small paint can are visible, creating a clean, newly renovated atmosphere.">
+          </a>
+        </div>
+      </div>
+
+      <a href="gallery.html" class="viewGalleryButton">View Full Gallery</a>
+    </section>
+
+<!--Start of Process Steps-->
+    <section class="processSteps">
+      <span class="serviceEyebrow">Getting Started</span>
+      <h2 class="serviceTitle">Three Easy Steps</h2>
+
+      <div class="stepsRow">
+        <div class="stepItem">
+          <div class="stepCircle" aria-hidden="true">1</div>
+          <h3>Request a Quote</h3>
+          <p>Fill out our quick form or give us a call — tell us about your project.</p>
+        </div>
+        <div class="stepItem">
+          <div class="stepCircle" aria-hidden="true">2</div>
+          <h3>Get a Walkthrough</h3>
+          <p>We visit, assess the space, and give you honest, upfront pricing.</p>
+        </div>
+        <div class="stepItem">
+          <div class="stepCircle" aria-hidden="true">3</div>
+          <h3>Enjoy the Results</h3>
+          <p>Our crew handles prep, paint, and cleanup — you just enjoy the transformation.</p>
+        </div>
+      </div>
+    </section>
+<!--End of Process Steps-->
+
+<!--===TEASER===-->
+    <div class="quoteMapRow">
+      <div class="quoteTeaser">
+        <span class="serviceEyebrow">Ready to Get Started?</span>
+        <h2 class="serviceTitle" style="white-space: normal;">Get a Free Quote</h2>
+        <p class="sectionLead">Tell us about your project — no obligation, no pressure. We'll follow up to schedule your free estimate.</p>
+        <a href="booking.html" class="quoteTeaserButton">Request a Free Quote</a>
+      </div>
+<!--===MAP===-->
+      <div class="areaCard" id="map">
+        <h3>Our Service Area</h3>
+        <p>We serve all areas of Las Vegas</p>
+        <div id="serviceMap" role="img" aria-label="Interactive map showing our Las Vegas service area, including Summerlin, North Las Vegas, and Henderson"></div>
+      </div> 
+      <ul class="areaList">
+      <li>Las Vegas</li>
+      <li>Summerlin</li>
+      <li>North Las Vegas</li>
+      <li>Henderson</li>
+  </ul>
+    </div>
+  </main>
+
+<!--START of footer-->
+  <footer>
+    <div class="footerBox">
+      <div class="footerLogo">
+        <img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo showing a paint spray gun beside a stylized house roof and chimney, with the text ORANTES PAINTING LLC below. The navy blue and gold design on a white background presents a professional painting business identity.">
+      </div>
+      
+      <div class="contactInfo">
+        <div class="oneLine">
+          <a href="tel:17029562409">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span>(702) 956-2409</span>
+          </a>
+        </div>
+        
+        <div class="oneLine">
+          <a href="mailto:Orantespaintingllc@gmail.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span>Orantespaintingllc@gmail.com</span>
+          </a>
+        </div>
+
+        <div class="oneLine">
+          <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+          <span>License #0095838</span>
+        </div>
+      </div>  
+    </div>
+    <!--bottom footer section-->
+    <section class="bottomFooter">
+      <h3>Business Hours</h3>
+      <div>
+        <ul>
+          <li><span><i class="fa-regular fa-clock" aria-hidden="true"></i></span> Monday-Saturday: 7am to 5pm</li>
+          <li><span><i class="fa-regular fa-clock" aria-hidden="true"></i></span> Sunday: Closed</li>
+        </ul>
+      </div>
+        
+      <h3>Service Area</h3>
+      <div class="serviceArea">
+        <ul>
+          <li><p>Las Vegas, NV</p></li>
+        </ul>
+      </div>
+
+      <h3>Quick Links</h3>
+      <div class="quickLinks">
+        <ul>
+          <li><a href="index.html"><p>Home</p></a></li>
+          <li><a href="services.html"><p>Services</p></a></li>
+          <li><a href="gallery.html"><p>Gallery</p></a></li>
+          <li><a href="review.html"><p>Reviews</p></a></li>
+          <li><a href="booking.html"><p>Book Now</p></a></li>
+          <li><a href="privacy-policy.html"><p>Privacy Policy</p></a></li>
+        </ul>   
+      </div>
+
+      <h3>Follow Us On</h3>
+      <div class="socialIcon">
+        <!--add Javascript to open in a new page-->
+        <div>
+          <a href="https://www.instagram.com/orantes_painting_llc/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        </div>
+        <div>
+          <a href="https://m.facebook.com/profile.php?id=61592579204648" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+        </div>
+        <div>
+          <a href="https://www.tiktok.com/@orantespaintingllc?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Tiktok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section> 
+  </footer>  
+<script src="script.js"></script>
+</body>
+</html>

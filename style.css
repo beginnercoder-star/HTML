@@ -1,0 +1,2061 @@
+/* ==========================================
+   DEFAULT STYLES: Mobile Phones (Up to 479px)
+ 
+  ========================================== */
+:root{
+    --navy-dark: #0a1b3d;
+    --navy-card: #122f53;
+    --gold: #dbaa5c;
+    --gold-bright: #e09927;
+    --cream: #f3f1ed;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    width: 100%;
+    overflow-x: clip;
+}
+html{
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+}
+body {
+    position: relative;
+}
+body::before{
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        radial-gradient(400px circle at 10% 15%, rgba(219,170,92,0.40), transparent 70%),
+        radial-gradient(450px circle at 90% 30%, rgba(16,39,68,0.32), transparent 70%),
+        radial-gradient(380px circle at 15% 75%, rgba(219,170,92,0.37), transparent 70%),
+        radial-gradient(420px circle at 88% 90%, rgba(16,39,68,0.30), transparent 70%);
+}
+.header{
+   min-height: 12vh;
+   width: 100%;
+   background-color: var(--cream);
+   box-shadow: 0 2px 8px rgba(10, 27, 61, 0.12);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+}
+nav{
+    display: flex;
+    padding: 2px 6%;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+nav img{
+    width: 170px;
+    height: 90px;
+    object-fit: contain;
+}
+
+/* Mobile Menu Setup (Hidden by default, slides out) */
+.menu{
+    position: absolute;
+    background: #04011b;
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    bottom: 0;
+    text-align: left;
+    z-index: 2;
+    right: -200px;
+    transition: 1s;
+}
+.menu ul{
+    padding: 30px;
+}
+.menu ul li{
+    list-style: none;
+    display: block;
+    padding: 18px 12px;
+    position: relative;
+}
+.menu ul li a{
+    color: #d8dbde;
+    text-decoration: none;
+    font-size: 28px;
+    white-space: nowrap;
+    padding: 0;
+}
+.menu ul li::after{
+    content: '';
+    width:  0%;
+    height: 2px;
+    background: #b3c0d2;
+    display: block;
+    margin: auto;
+    left: 0;
+}
+.menu ul li:hover::after{
+    transition: 0.5s;
+    width: 100%;
+}
+
+/* Mobile Navigation Icons */
+nav .fa-xmark{
+    background: none;
+    border: none;
+    display: block;
+    color: #d8dbde;
+    font-size: 25px;
+    margin: 10px;
+    cursor: pointer;
+}
+nav .fa-bars{
+    background: none;
+    border: none;
+    display: block;
+    color: #040d1a;
+    font-size: 28px;
+    margin: 10px;
+    cursor: pointer;
+}
+/*backdrop*/
+.softBackdrop{
+    position: relative;
+    overflow: hidden;
+    isolation: isolate; /* keeps the blobs contained to this section only */
+}
+.softBackdrop::before,
+.softBackdrop::after{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: -1;
+    opacity: 0.35;
+}
+.softBackdrop::before{
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(
+        circle, 
+        var(--gold) 40%,
+        transparent 70%
+    );
+    top: -120px;
+    left: -100px;
+    opacity: 0.35;
+}
+.softBackdrop::after{
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(
+        circle,
+        var(--navy-card) 0%,
+        transparent 70%
+    );
+    bottom: -100px;
+    right: -80px;
+    opacity: 0.15;
+}
+/* Hero Section */
+.textBox{
+    width: 85%;
+    padding: 20px;
+    margin: 0 auto;
+    position: relative;
+    padding-bottom: 90px;
+    box-sizing: border-box;
+}
+.heroBanner{
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.55)100%), url(images/exterior/IMG_0167.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;   
+    
+}
+
+.offerBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 15px 0;
+    line-height: 1.2;
+}
+.offerTop{
+    font-size: 38px;
+    font-weight: 600;
+    color: #f3f1ed;
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
+}
+.offerWord{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: clamp(24px, 9vw, 46px);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--gold);
+    min-height: 1.2em;
+    white-space: nowrap;
+    padding: 20px 0;
+    margin: 0;
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
+}
+.offerBottom{
+    font-size: 38px;
+    font-weight: 600;
+    color: #f3f1ed;
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
+}
+.cursor{
+    display: inline-block;
+    width: 3px;
+    height: 0.9em;
+    margin-left: 2px;
+    background: var(--gold);
+    vertical-align: -0.1em;
+    animation: blink 0.8s step-end infinite;
+}
+@keyframes blink{
+    0%, 49%{ opacity: 1; }
+    50%, 100%{ opacity: 0; }
+}
+.quoteButton{
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy-dark);
+    padding: 8px 16px;
+    font-size: 26px;
+    border-radius: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+.quoteButton:hover{
+    background: var(--gold-bright);
+    color: var(--navy-dark);
+}
+
+/* Trust Badges */
+.trustBadges{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 25px 20px;
+    background-color: var(--navy-dark);
+    color: var(--gold);
+}
+.badgeRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.badgeTop, .badgeBottom{
+    gap: 25px;
+}
+
+.badge{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+.badge svg, .badge i{
+    color: var(--gold);
+    font-size: 26px;
+}
+.badge p{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: inherit;
+}
+.licenseNum{
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--gold);
+    margin: 2px 0 0 0;
+}
+
+/* Credibility Section */
+.credibility{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+.credibilityIntro{
+    text-align: center;
+    justify-content: center;
+}
+
+.statsStrip{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 30px 0 50px;
+}
+.statItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.statNumber{
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    font-family: 'Fraunces', serif; /* omit if you're not using this font — falls back to default */
+}
+.statLabel{
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+/* Testimonials */
+.testimonials{
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 1px;
+    text-align: center;
+    overflow: hidden;
+}
+.googleBadge{
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: var(--navy-card);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 11px 24px;
+    margin: 0;
+    text-decoration: none;
+    transition: transform 0.15s ease;
+    text-align: center;
+}
+.googleBadge:hover{
+    transform: translateY(-2px);
+}
+.googleStars{
+    color: var(--gold);
+    font-size: 20px;
+    font-weight: 700;
+}
+.reviewActions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0 50px;
+}
+.leaveReviewButton{
+    display: inline-block;
+    background: transparent;
+    color: var(--navy-dark);
+    border: 2px solid var(--navy-dark);
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 0;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.leaveReviewButton:hover{
+    background: var(--navy-dark);
+    color: var(--cream);
+    transform: translateY(-2px);
+}
+
+/*sliding reviews*/
+.marqueeWrapper{
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+.marqueeTrack{
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scrollLeft 180s linear infinite;
+}
+.marqueeWrapper:hover .marqueeTrack{
+    animation-play-state: paused;
+}
+.reviewCard{
+    background: #ffffff;
+    border: 1px solid #e5e0d5;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    flex: 0 0 300px;
+}
+.reviewStars{
+    color: var(--gold);
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.reviewText{
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 12px;
+}
+.reviewAuthor{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy-dark);
+}
+@keyframes scrollLeft{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .marqueeTrack{
+        animation: none;
+    }
+    .galleryItem{
+         animation: none;
+         opacity: 1;   
+        }
+    .cursor{
+        animation: none;
+        opacity: 0;
+    }
+}
+
+
+/*owners story*/
+.ownerStory{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 34px;
+    padding: 30px 24px;
+    text-align: center;
+    margin-top: 80px;
+}
+.ownerPhoto{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--gold);
+    flex-shrink: 0;
+}
+.ownerPhoto img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.85) contrast(1.05); /* softens blur perception slightly */
+}
+.ownerText h3{
+    color: var(--navy-dark);
+    margin-bottom: 12px;
+    font-size: 25px;
+}
+.ownerText p{
+    color: var(--navy-dark);
+    line-height: 1.9;
+    font-size: 22px;
+}
+
+/* Services Section - Mobile Carousel View */
+.serviceSection{
+    max-width: 1000px;
+    margin: 15px auto 40px;
+    padding: 0 20px;
+}
+.serviceTitle{
+    font-size: clamp(30px, 6vw, 38px);
+    font-weight: 900;
+    color: var(--navy-dark);
+    margin-bottom: 30px;
+    text-align: center;
+    padding-top: 10px;
+    position: relative;
+    white-space: nowrap;
+}
+.serviceTitle::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 75px;
+    height: 3px;
+    background: var(--gold);
+
+}
+.services{
+    display: flex;
+    gap: 28px;
+    overflow-x: auto;
+    touch-action: pan-x pan-y;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0px 40px;
+    box-sizing: border-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.services::-webkit-scrollbar{
+    display: none;
+}
+.cardContainer{
+    flex: 0 0 100%;
+    max-width: 100%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+    display: block;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.cardImage{
+    width: 100%;
+    z-index: 1;
+}
+.image{
+    border-radius: 8px;
+    width: 100%;
+    max-width: 360px;
+    height: 320px;
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(to top, rgba(0,0,0, 0.7) 0%, rgba(0, 0, 0, 0) 80%);
+}
+.service{
+    background: #ffffff;
+    border-radius: 8px;
+    border: 0.25px solid #2e3135;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 5;
+    padding: 8px;
+    margin: -30px auto 0 auto;
+    width: 83%;
+    min-height: 120px;
+    text-align: center;
+}
+.containerTitle{
+    margin: 8px 0;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+}
+hr {
+    border: none;
+    height: .5px;
+    background-color: #333;
+}
+
+.bookingButton{
+    display: inline-block;
+    background: var(--navy-dark);
+    color: var(--cream);
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: 90%;
+    box-sizing: border-box;
+}
+.bookingButton:hover{
+    background: var(--gold);
+    color: var(--navy-dark);
+}
+
+/* Dots and Arrow Navigation (Visible on Mobile) */
+.dotContainer{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+
+}
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: #12356cdf;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+.dot.active{
+    background-color: var(--navy-dark);
+}
+.carouselControls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 34px;
+    margin-top: 16px;
+    padding-top: 15px;
+}
+.carouselArrow{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--navy-dark);
+    color: var(--gold);
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, transform 0.15s ease;
+}
+.carouselArrow:hover{
+    background: var(--gold);
+    color: var(--navy-dark);
+    transform: scale(1.08);
+}
+
+/* Gallery Preview */
+.serviceEyebrow{
+    font-size: 25px;
+    font-weight: 600;
+}
+.sectionLead{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--navy-dark);
+    margin: 6px 0;
+    font-style: italic;
+}
+
+.galleryPreview{
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.galleryGrid{
+    position: relative;
+    overflow: hidden;
+    height: 450px;
+    width: 320px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.galleryTrack{
+    /* no longer a flex column — items are stacked/positioned absolutely */
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.galleryItem{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    animation: fadeSlide 20s infinite;
+}
+
+.galleryItem img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.galleryItem:hover img{
+    transform: scale(1.06);
+}
+
+/* stagger each item's animation start so they take turns */
+.galleryItem:nth-child(1){ animation-delay: 0s; }
+.galleryItem:nth-child(2){ animation-delay: 5s; }
+.galleryItem:nth-child(3){ animation-delay: 10s; }
+.galleryItem:nth-child(4){ animation-delay: 15s; }
+
+@keyframes fadeSlide{
+    0%   { opacity: 0; }
+    4%   { opacity: 1; }   /* fade in */
+    20%  { opacity: 1; }   /* stay visible */
+    24%  { opacity: 0; }   /* fade out */
+    100% { opacity: 0; }   /* stay hidden until its turn again */
+}
+.viewGalleryButton{
+    display: inline-block;
+    background: var(--navy-dark);
+    color: var(--cream);
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+}
+.viewGalleryButton:hover{
+    background: var(--gold-bright);
+    color: var(--navy-dark);
+}
+
+/* Process Steps */
+.processSteps{
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+.stepsRow{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 30px;
+    position: relative;
+}
+.stepItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+}
+.stepCircle{
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--navy-dark);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    border: 3px solid var(--gold);
+}
+.stepItem h3{
+    color: var(--navy-dark);
+    font-size: 18px;
+}
+.stepItem p{
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+    max-width: 260px;
+}
+
+/* Action Buttons */
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 10px;
+}
+.contactButton, .callButton{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.contactButton{
+    background: var(--gold);
+    color: var(--navy-dark);
+    border: none;
+}
+.contactButton:hover{
+    background: var(--gold-bright);
+    transform: translateY(-2px);
+}
+.callButton{
+    background: transparent;
+    color: var(--navy-dark);
+    border: 2px solid var(--navy-dark);
+}
+.callButton:hover{
+    background: var(--navy-dark);
+    color: var(--cream);
+    transform: translateY(-2px);
+}
+
+/*Contact Form*/
+.form{
+    max-width: 520px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px;
+}
+.form h2{
+    padding-bottom: 10px;
+}
+.requestCard{
+    background: var(--navy-card);
+    border: 1px solid var(--gold);
+    border-radius: 16px;
+    padding: 20px;
+}
+.requestCard h2{
+    color: var(--cream);
+    margin-bottom: 12px;
+}
+.field{
+    margin: 10px 10px 10px 0px;
+}
+.row{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+input, select, textarea{
+    width: 100%;
+    background: var(--navy-dark);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 8px 12px;
+    color: var(--cream);
+    font-size: 1.2rem;
+    font-family: inherit;
+}
+label{
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--cream);
+}
+
+input::placeholder,
+textarea::placeholder{
+    color: rgba(243, 241, 237, 0.55);
+}
+select{
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23a49fd1" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    color: var(--cream);
+}
+textarea{
+    resize: vertical;
+    min-height: 100px;
+}
+input:focus,
+select:focus,
+textarea:focus{
+    outline: none;
+    border-color: var(--gold-bright);
+    box-shadow: 0 0 0 3px rgba(219,170,92,0.25);
+}
+/*preferred time*/
+.hint{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--cream);
+    font-size: 1.2rem;
+    margin: 18px 0 18px;
+}
+.hint i{
+    flex-shrink: 0;
+    color: var(--gold);
+}
+/*send request*/
+button.submit{
+    width: 100%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+    border: none;
+    color: var(--navy-dark);
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+button.submit:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 8px 15px rgba(219,170,92,0.35);
+}
+button.submit:active{
+    transform:translateY(0);
+}
+button.submit:disabled{
+    opacity: .7;
+    cursor: default;
+    transform: none;
+}
+.status{
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 10px;
+    min-height: 18px;
+}
+.status.ok{
+    color: var(--navy-dark);
+    font-weight: 600;
+}
+.status.error{
+    color: #c0392b;
+    font-weight: 600;
+}
+/*contact grid*/
+.grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+}
+.contactCard{
+    background: var(--navy-card);
+    border: 1px solid var(--gold);
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.contactCard:hover{
+    transform: translateY(-2px);
+    border-color: var(--gold-bright);
+}
+.grid i{
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(219,170,92,0.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold);
+}
+.contactCard h3{
+    margin:5px 0 4px;
+    font-size: 1.5rem;
+    color: var(--cream);
+}
+.contactCard .sub{
+    color: rgba(243, 241, 237, 0.7);
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+.quoteMapRow{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+/*map*/
+.areaCard{
+    background: var(--navy-dark);
+    border: 1px solid var(--gold);
+    border-radius: 14px;
+    padding: 18px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.areaCard h3{
+    margin: 0 0 2px;
+    color: var(--cream);
+    font-size: 1.6rem;
+}
+.areaCard p{
+    margin: 0 0 14px;
+    color: var(--gold);
+    font-size: 1.3rem;
+}
+#serviceMap{
+    height:280px;
+    width:100%;
+    border-radius:10px;
+    border:1px solid var(--gold);
+    position: relative;
+    z-index: 0;
+}
+#serviceMap .leaflet-marker-icon,
+#serviceMap .leaflet-popup{
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+.areaList{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(145px, 1fr));
+    gap: 15px;
+    margin-top: 14px;
+    padding: 0;
+    text-align: center;
+}
+.areaList li{
+    background: #122f53;
+    border: 1px solid var(--gold);
+    color: var(--cream);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.99rem;
+}
+.quoteMapRow,
+.areaList{ 
+    flex-basis: 1 1 100%; 
+}
+
+/*==TEASER==*/
+.quoteTeaser{
+    background: var(--navy-dark);
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    border-radius: 4px;
+    padding: 30px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.quoteTeaser .serviceEyebrow{
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.quoteTeaser .serviceTitle{
+    color: var(--cream);
+    font-style: italic;
+    font-weight: 400;
+    margin: 10px 0 16px;
+}
+.quoteTeaser .sectionLead{
+    color: rgba(243,241,237,0.65);
+    font-style: normal;
+    font-size: 14px;
+    max-width: 320px;
+    margin: 0 auto 26px;
+    line-height: 1.7;
+}
+.quoteTeaserButton{
+    display: inline-block;
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 12px 34px;
+    border-radius: 0;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.quoteTeaserButton:hover{
+    background: var(--gold);
+    color: #1b1712;
+}
+/*footer*/
+/*footer card with logo and contact information*/
+footer{
+    background-color: var(--navy-dark);
+    color: white;
+    margin-top: 90px;
+    padding: 1px 20px 40px 20px;
+    
+}
+.footerBox{
+    color: white;
+    background-color: var(--navy-card);
+    text-align: left;
+    margin: -80px 10px 40px 10px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.432);
+    
+}
+.footerLogo{
+    max-width: 210px;
+    margin-bottom: 25px;
+}
+.footerLogo img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 824 / 484; /* match your actual logo's natural proportions */
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 4px 5px rgba(210, 213, 229, 0.588));
+}
+.contactInfo{
+width: 100%;
+}
+.contactInfo > div, 
+.oneLine a{
+display: flex;
+align-items: center;
+gap: 15px;
+margin-bottom: 10px;
+}
+.contactInfo i{
+background-color: rgba(1, 5, 20, 0.2);
+width: 36px;
+height: 36px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #ffffff;
+font-size: 14px;
+}
+.contactInfo a{
+color: #ffffff;
+text-decoration: none;
+font-weight: 550;
+font-size: 18px;
+}
+.contactInfo span{
+color: #ffffff;
+font-weight: 550;
+font-size: 18px;
+}
+/*footer bottom section*/
+.bottomFooter{
+    color: white;
+}
+.bottomFooter h3{
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    position: relative;
+    padding-bottom: 12px;
+}
+.bottomFooter h3::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 36px;
+    height: 3px;
+    background: var(--gold);
+}
+.bottomFooter ul li{
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: rgb(242, 237, 237);
+    list-style: none;
+}
+.bottomFooter > div > ul li i{
+    font-size: 19px;
+}
+.serviceArea p{
+    font-size: 20px;
+    margin: 0;
+}
+/*quick links*/
+.quickLinks a{
+    text-decoration: none;
+    color: white;
+}
+.quickLinks a:hover p{
+    color: #f5a623;
+}
+/*social icon*/
+.socialIcon{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+.socialIcon a{
+    width: 38px;
+    height: 38px;
+    border-radius: 40%;
+    background: var(--gold-bright);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.socialIcon i{
+    font-size: 25px;
+    color: white;   
+}
+.socialIcon a:hover{
+    background: #e7e4e0c3;
+}
+
+/*PRIVACY-POLICY.HTML*/
+/* Privacy Policy Page */
+.policyPage{
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+.policyContent h1{
+    color: var(--navy-dark);
+    font-size: clamp(28px, 5vw, 38px);
+    margin-bottom: 6px;
+}
+.policyUpdated{
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+.policyContent h2{
+    color: var(--navy-dark);
+    font-size: 22px;
+    margin: 30px 0 10px;
+}
+.policyContent p, .policyContent li{
+    color: #333;
+    font-size: 15px;
+    line-height: 1.7;
+}
+.policyContent ul{
+    margin: 10px 0 10px 20px;
+}
+.policyContent a{
+    color: var(--gold-bright);
+}
+/*BOOKING.HTML*/
+/* Booking Page Intro */
+.bookingIntro{
+    max-width: 700px;
+    margin: 60px auto 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+.bookingIntro .serviceTitle{
+    white-space: normal;
+}
+.fieldHint{
+    font-size: 18px;
+    color: rgba(243, 241, 237, 0.6);
+    margin-top: 6px;
+    padding: 10px;
+}
+input[type="file"]{
+    background: var(--navy-dark);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: var(--cream);
+    font-size: 0.95rem;
+    width: 100%;
+    cursor: pointer;
+}
+input[type="file"]::file-selector-button{
+    background: var(--gold);
+    color: var(--navy-dark);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: 600;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.photoUploadCard{
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--navy-dark);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 18px;
+    margin: 20px 0;
+}
+.photoUploadCard i{
+    font-size: 22px;
+    color: var(--gold);
+    margin-top: 4px;
+}
+.photoUploadCard h3{
+    color: var(--cream);
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+.photoUploadCard p{
+    color: rgba(243,241,237,0.75);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.photoUploadButton{
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy-dark);
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: none;
+}
+.photoUploadButton:hover{
+    background: var(--gold-bright);
+}
+
+.photoTextLink{
+    color: var(--gold-bright);
+    font-weight: 600;
+    text-decoration: underline;
+}
+/*sERVICES.HTML*/
+/* Services Page */
+.servicesIntro{
+    max-width: 700px;
+    margin: 60px auto 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+.serviceDetail{
+    max-width: 900px;
+    margin: 70px auto;
+    padding: 0 20px;
+}
+.serviceDetailHeader h2{
+    color: var(--navy-dark);
+    font-size: clamp(24px, 5vw, 30px);
+    margin-bottom: 8px;
+}
+.serviceDetailHeader p{
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* Before/After Slider */
+.baSlider{
+    margin-top: 24px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.baSliderInner{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/4;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--gold);
+    cursor: ew-resize;
+    user-select: none;
+}
+.baAfter, .baBefore{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.baBeforeWrap{
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 50%;
+    overflow: hidden;
+}
+.baBeforeWrap .baBefore{
+    width: var(--slider-img-width, 100%);
+    max-width: none;
+}
+.baHandle{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: var(--gold);
+    transform: translateX(-50%);
+    touch-action: none;
+}
+.baHandleCircle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--navy-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.baLabels{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Process Section */
+.processSection{
+    margin-top: 40px;
+}
+.processSection h3{
+    color: var(--navy-dark);
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+.processGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+.processPhoto img{
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+.processCaption{
+    font-size: 13px;
+    color: #666;
+    margin-top: 6px;
+    text-align: center;
+}
+.processPhoto video{
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    background: #000;
+}
+.processPhotoWide{
+    grid-column: span 2;
+}
+
+/*GALLERY.HTML*/
+/* Gallery Page */
+.galleryHeader{
+    max-width: 700px;
+    margin: 60px auto 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+.galleryFilters{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0 30px;
+    padding: 0 20px;
+}
+.filterBtn{
+    background: transparent;
+    border: 2px solid var(--navy-dark);
+    color: var(--navy-dark);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.filterBtn.active,
+.filterBtn:hover{
+    background: var(--navy-dark);
+    color: var(--cream);
+}
+.fullGalleryGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.fullGalleryItem{
+    display: block;
+    border-radius: 8px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    border: 1px solid var(--gold);
+}
+.fullGalleryItem img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+}
+.fullGalleryItem:hover img{
+    transform: scale(1.06);
+}
+.fullGalleryItem.hidden{
+    display: none;
+}
+
+/* Lightbox */
+.lightbox{
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 27, 61, 0.92);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.lightbox.open{
+    display: flex;
+}
+.lightbox img{
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 8px;
+}
+.lightboxClose{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: var(--cream);
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/*REVIEW.HTML*/
+/* Reviews Page */
+.reviewsPageHeader{
+    max-width: 700px;
+    margin: 60px auto 20px;
+    padding: 0 20px;
+    text-align: center;
+}
+.fullReviewGrid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 30px auto 50px;
+    padding: 0 20px;
+}
+
+/* ==========================================
+   ACCESSIBILITY ADDITIONS
+   Paste this block into style.css (top of the file, near the * reset, is a good spot)
+   ========================================== */
+
+/* Visually hide content but keep it available to screen readers */
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip link — hidden until keyboard-focused, then jumps above the header */
+.skipLink{
+    position: absolute;
+    top: -60px;
+    left: 10px;
+    background: var(--navy-dark);
+    color: var(--cream);
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 1000;
+    transition: top 0.2s ease;
+}
+.skipLink:focus{
+    top: 10px;
+}
+
+/* Reset default browser button styling on the icon-buttons we converted
+   from <i onclick> to real <button> elements, so they keep their original look */
+nav .fa-xmark,
+nav .fa-bars{
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Visible focus outline for keyboard users on interactive elements
+   that don't already show one clearly against the site's dark/gold palette */
+a:focus-visible,
+button:focus-visible,
+.baHandle:focus-visible,
+.dot:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+    outline: 3px solid var(--gold-bright);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   BREAKPOINT 1: Larger Mobile/Small Tablets (480px and up)
+   ========================================== */
+@media(min-width: 480px){
+    /* Note: If you want text sizes to shrink slightly on screens larger than 480px, keep these values. 
+       Otherwise, omit this block to maintain the default mobile sizes. */
+    .menu ul li a{
+        font-size: 22px;
+    }
+    nav .fa-xmark{
+        font-size: 22px;
+    }
+    nav .fa-bars{
+        font-size: 25px;  
+    }
+    nav img{
+        width: 150px;
+    }
+ 
+/*Hero Banner*/
+    .heroBanner{
+        height: 100svh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .quoteButton{
+        font-size: 20px;
+        bottom: 20px;
+    }
+    .badgeBottom{
+        gap: 85px;
+    }  
+    .badgeTop{
+        gap: 60px;
+    }
+
+
+    .footerLogo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
+    padding: 20px;
+    }
+
+    .marqueeTrack{
+    animation-duration: 65s;
+    }
+    .reviewActions{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    }
+    .googleBadge{
+        padding: 9px 24px;
+    }
+    /*services*/
+    .services{
+        overflow-x: hidden;
+        padding: 0;
+        gap: 0;
+    }
+
+/*REVIEW.HTML*/
+    .fullReviewGrid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* ==========================================
+   BREAKPOINT 2: Tablets / Small Laptops (700px and up)
+   ========================================== */
+@media(min-width: 700px){
+    /* Reverse layout adjustments back to horizontal grid rows */
+    nav img{
+        width: 150px;
+    }
+    .quoteButton{
+        font-size: 21px;
+    }
+
+    .heroBanner{
+        height: 85vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+    .menu{
+        position: static;
+        background: transparent;
+        height: auto;
+        width: auto;
+        text-align: right;
+    }
+    .menu ul{
+        padding: 0;
+    }
+    .menu ul li{
+        display: inline-block;
+    }
+    .menu ul li a{
+        color: #120202;
+        font-size: 20px;
+    }
+    .menu ul li::after{
+        background: #08121f;
+    }
+    
+    nav .fa-xmark, nav .fa-bars{
+        display: none;
+    }
+    .textBox{
+    margin: 0 auto;
+    }
+    .trustBadges{
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        padding: 15px 30px;
+    }
+    .badgeRow{
+        display: contents;
+    }
+    .googleBadge{
+        padding: 9px 24px;
+    }
+
+
+/*Owners Story*/
+    .ownerStory{
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+        margin: 0 auto;
+        max-width: 700px;
+        gap: 75px;
+    }
+    .ownerText{
+        max-width: 480px;
+    }
+    .ownerText h3{
+        font-size: 24px;
+    }
+    .ownerText p{
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+
+/*services*/
+    .services{
+       display: grid;
+       grid-template-columns: repeat(2, 1fr);
+       gap: 24px;
+       overflow: visible;
+       padding: 0;
+    }
+    .cardContainer{
+        flex: none;
+        max-width: none;
+    }
+    .carouselControls{
+        display: none;
+    }
+    .serviceDetail{
+    text-align: center;
+    }
+    .serviceDetailHeader p{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+/*Process Steps*/
+    .stepsRow{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+
+/* connecting line between the circles */
+    .stepsRow::before{
+        content: "";
+        position: absolute;
+        top: 28px;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: var(--gold);
+        z-index: 0;
+    }
+    .stepItem{
+        flex: 1;
+        max-width: 260px;
+    }
+/*teaser*/
+    .quoteMapRow{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        align-items: stretch;
+    }
+    .quoteTeaser .serviceTitle{
+        letter-spacing: 1px;
+    }
+    .quoteTeaser .sectionLead{
+        letter-spacing: 0.3px;
+    }
+    .quoteMapRow .quoteTeaser,
+    .quoteMapRow .areaCard{
+        flex: 1 1 300px;
+    }
+    .quoteMapRow .areaList{
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+
+/*form*/
+    .row{
+        grid-template-columns: 1fr 1fr;
+    }
+    .grid{
+    grid-template-columns:1fr 1fr;
+    }
+    
+    
+/* Gallery preview: a bit more breathing room now that it's not cramped */
+    .galleryPreview{
+        margin: 60px auto;
+    }
+    .galleryGrid{
+        width: 480px;
+        max-width: 480px;
+        height: 520px;
+    }
+
+/* Contact form + grid side-by-side instead of stacked */
+    .form{
+        max-width: 1100px;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .requestCard{
+        flex: 1;
+    }
+    .contactColumn{
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    }
+    .contactCard {
+        padding: 10px;
+        min-height: 90px;
+        align-items: center;
+    }
+    .cardText{
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+/*google reviews*/
+
+    .marqueeTrack{
+    animation-duration: 45s;
+    }
+/*SERVICES.HTML*/
+    .processGrid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+    }
+    .processPhotoWide{
+        grid-column: auto;
+        max-width: none;
+        margin: 0;
+    }
+    .processPhoto{
+        flex: 1 1 200px;
+    }
+    
+
+/*GALLERY.HTML*/
+    .fullGalleryGrid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .galleryPreview{
+        max-width: 650px;
+    }
+
+/*Footer*/
+    .footerBox{
+        max-width: 750px;
+        margin: -80px auto 40px auto;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .footerBox .contactInfo a,
+    .footerBox .contactInfo span{
+        font-size: 17px;
+    }
+    .footerBox .contactInfo i{
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+    .footerBox .contactInfo > div,
+    .footerBox .oneLine a{
+        justify-content: center;
+    }
+
+    .contactInfo{
+        width: auto;
+    }
+
+
+    .footerBox .contactInfo{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        width: auto;
+    }
+
+    .footerLogo{
+        max-width: 240px;
+        margin-bottom: 15px;
+    }
+    /*bottom*/
+    .bottomFooter{
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 40px;
+        row-gap: 10px;
+        align-items: start;
+    }
+
+    .bottomFooter h3{
+        font-size: 20px;
+    }
+
+    .bottomFooter ul li,
+    .serviceArea p{
+        font-size: 17px;
+    }
+
+}
+
+
+
+@media(min-width: 900px){
+    .fullReviewGrid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .quoteMapRow{
+        display: flex;
+        gap: 40px;
+        align-items: stretch;
+    }
+
+    .quoteMapRow .quoteTeaser,
+    .quoteMapRow .areaCard{
+        flex: 1;
+    }
+
+}
+
+
+@media(min-width: 1200px) {
+    nav img{
+        width: 150px;
+}
+    .heroBanner{
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+}
+    /* Add specific large-screen optimizations here if needed */
+/*GALLERY.HTML*/
+    .fullGalleryGrid{
+            grid-template-columns: repeat(4, 1fr);
+        }
+    .galleryGrid{
+        width: 560px;
+        max-width: 560px;
+        height: 600px;
+    }
+
+/*Services*/
+    .services{
+        grid-template-columns: repeat(4,1fr);
+    }
+
+   
+}

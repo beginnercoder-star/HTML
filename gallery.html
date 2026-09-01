@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photo gallery of painting projects by Orantes Painting in Las Vegas" />
+    <title>Gallery | Orantes Painting Company</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+</head>
+<body>
+  <a href="#main" class="skipLink">Skip to main content</a>
+  <header class="header">
+    <nav aria-label="Main navigation">
+      <a href="index.html"><img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo showing a paint spray gun beside a stylized house roof and chimney, with the text ORANTES PAINTING LLC below. The navy blue and gold design on a white background presents a professional painting business identity."></a>
+      <div class="menu" id="navLinks">
+        <button class="fa-solid fa-xmark" onclick="hideMenu()" aria-label="Close menu"></button>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+        </ul>
+      </div>
+      <button class="fa-solid fa-bars" onclick="showMenu()" aria-label="Open menu" aria-expanded="false" id="menuToggle"></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="galleryHeader">
+      <span class="serviceEyebrow">Our Work</span>
+      <h1 class="serviceTitle" style="white-space: normal;">Full Gallery</h1>
+      <p class="sectionLead">Browse our projects by category.</p>
+    </section>
+
+    <div class="galleryFilters" role="group" aria-label="Filter gallery by category">
+      <button class="filterBtn active" data-filter="all" aria-pressed="true">All</button>
+      <button class="filterBtn" data-filter="exterior" aria-pressed="false">Exterior</button>
+      <button class="filterBtn" data-filter="interior" aria-pressed="false">Interior</button>
+      <button class="filterBtn" data-filter="cabinets" aria-pressed="false">Cabinets</button>
+      <button class="filterBtn" data-filter="commercial" aria-pressed="false">Commercial</button>
+    </div>
+
+    <div class="fullGalleryGrid">
+      <!-- EXTERIOR -->
+      <a href="images/exterior/house-1.jpg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/house-1.jpg" alt="Bright stucco house with a tiled roof, tall windows, and a dark open doorway surrounding a landscaped courtyard with gravel beds, desert plants, concrete walkways, and a black gate under a partly cloudy blue sky" loading="lazy">
+      </a>
+      <a href="images/exterior/house-2.jpg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/house-2.jpg" alt="Side view of a stucco house with several windows, exterior lights, decorative roof eaves, and a security camera, photographed at an angle beneath a bright blue sky with a leafy tree nearby. The scene feels calm and residential" loading="lazy">
+      </a>
+      <a href="images/exterior/house-3.jpg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/house-3.jpg" alt="Stucco house with two open garages, one marked with the number 7, while a worker prepares painting equipment beside the garage. Cardboard, tools, paint supplies, and landscaping surround the driveway beneath a clear blue sky, creating a busy work-in-progress scene" loading="lazy">
+      </a>
+      <a href="images/exterior/IMG_0167.jpg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/IMG_0167.jpg" alt="Two-story brown stucco house with a tiled roof and three garage doors, shown with ladders and painting supplies set up across the driveway. Desert landscaping, a leafless tree, neighboring homes, and an overcast sky surround the property, creating a quiet work-in-progress scene" loading="lazy">
+      </a>
+      <a href="images/exterior/IMG_0685.jpg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/IMG_0685.jpg" alt="Large modern two-story home with curved dark rooflines, stone columns, expansive glass windows, and a covered entrance. Palm trees, trimmed shrubs, ornamental grasses, and a white vehicle surround the house, which stands beside a broad multicolored stone-paver driveway beneath a bright blue sky with scattered clouds. The scene feels upscale and welcoming" loading="lazy"
+        >
+      </a>
+      <a href="images/exterior/IMG_1235.jpeg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/IMG_1235.jpeg" alt="Coral-red exterior door with a dark reflective glass panel and silver handle set in a beige stucco entryway. A doormat reads WELCOME HOME, with gravel, a small bucket, and strong sunlight around the welcoming residential entrance." loading="lazy">
+      </a>
+      <a href="images/exterior/IMG_1237.jpeg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/IMG_1237.jpeg" alt="Coral-pink front door being prepared for painting, with its frame and surrounding stucco wall covered in protective brown plastic and tape. The glass panel is covered with black protective film outlined in bright green tape, forming a smiling face. A ladder and painting equipment appear beside the sunny residential entryway, creating a cheerful work-in-progress scene" loading="lazy">
+      </a>
+      <a href="images/exterior/IMG_1238.jpeg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/IMG_1238.jpeg" alt="Green front door being painted, with the surrounding frame and stucco wall covered in protective plastic and tape. The glass panel is covered with plastic marked 3M and bright green tape arranged as a smiling face. A paint bucket sits at the lower right in strong sunlight, creating a cheerful work-in-progress scene" loading="lazy">
+      </a>
+      <a href="images/exterior/IMG_1240.jpeg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/IMG_1240.jpeg" alt="Lime-green front door with a tall reflective glass panel, black lock, silver handle, and silver threshold set in a light stucco wall. The glass reflects a person taking the photo, a gravel yard, stepping stones, a utility pole, and a dark boundary wall. A doormat and paint bucket sit near the entrance in strong sunlight, creating a bright residential scene." loading="lazy">
+      </a>
+      <a href="images/exterior/old-door.jpg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/old-door.jpg" alt="Weathered double front door with ornate glass panels, black trim, and heavily peeling brown paint being prepared for restoration. Bright green painter tape outlines the glass and lower threshold, while drop cloths and painting materials cover the entryway beneath strong sunlight. The scene feels like an active home improvement project." loading="lazy">
+      </a>
+      <a href="images/exterior/primed-door.jpg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/primed-door.jpg" alt="White double front door with tall decorative glass panels, each decorated with a green wreath, in a dimly lit stucco entryway. The narrow porch and brick threshold create a quiet, welcoming residential entrance." loading="lazy">
+      </a>
+      <a href="images/exterior/painted-door.jpg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/painted-door.jpg" alt="Freshly painted black double front door with decorative inset panels and tall glass sections covered by protective paper and plastic. Painter tape and masking materials surround the doorway and cover the threshold in a dim entryway, creating a focused home improvement work-in-progress scene" loading="lazy">
+      </a>
+      <a href="images/exterior/IMG_2602.jpg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/IMG_2602.jpg" alt="White stucco house with a gray tiled roof, bay windows, and a dark open entryway behind a low courtyard wall and black gate. A concrete walkway crosses a gravel yard planted with ornamental grasses, flowering shrubs, and small trees beneath an overcast sky, creating a calm residential scene" loading="lazy">
+      </a>
+      <a href="images/exterior/IMG_2718.jpg" class="fullGalleryItem" data-category="exterior">
+        <img src="images/exterior/IMG_2718.jpg" alt="Stucco house surrounding a landscaped courtyard with a concrete walkway leading to a dark entrance, bay windows, ladders, gravel beds, ornamental grasses, flowering plants, and young trees beneath a clear blue sky. The bright, peaceful scene appears to show recent or ongoing exterior work" loading="lazy">
+      </a>
+
+      <!-- INTERIOR -->
+       <a href="images/interior/tv-wall.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/tv-wall.jpg" alt="Bright, spacious living room with gray walls, a black electric fireplace set into a recessed feature wall, white trim, large arched windows, and glossy wood flooring. Sunlight fills the unfurnished room, which opens to a screened patio or sunroom through glass doors, creating a clean and welcoming atmosphere" loading="lazy">
+      </a>
+      <a href="images/interior/bathroom-after.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/bathroom-after.jpg" alt="Unfurnished interior room with a large dark tiled feature wall and raised tiled hearth or tub structure on the right. A sunlit window overlooks trees, a street, and distant buildings, while an open doorway leads to a smaller unfinished room on the left. Pale walls, patterned tile flooring, ceiling vents, and exposed wall fixtures create a clean, quiet work-in-progress atmosphere" loading="lazy">
+      </a>
+      <a href="images/interior/bathroom-before.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/bathroom-before.jpg" alt="Unfinished bathroom under renovation with a dark gray tiled shower enclosure covered in protective plastic and a step ladder standing in front of it. The room has white walls, a plastic-covered floor, a frosted window, recessed ceiling fixtures, and an open door on the left. The quiet work-in-progress scene feels practical and subdued." loading="lazy">
+      </a>
+      <a href="images/interior/bathroom2-after.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/bathroom2-after.jpg" alt="Bright, newly renovated bathroom and adjoining bedroom viewed from a hallway. A white vanity with a black countertop and rectangular mirrors lines the left wall, while an open doorway ahead reveals a bathtub and toilet. Sunlight enters the bedroom through a window on the right, illuminating wood-look flooring and creating a clean, welcoming atmosphere." loading="lazy">
+      </a>
+      <a href="images/interior/gallery-image-1.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/gallery-image-1.jpg" alt="Carpeted staircase descending from a bright, freshly finished interior, with a white half-wall and handrail in the foreground. White doors, recessed ceiling lights, a window with closed blinds, and a gray-carpeted hallway surround the stairs. The clean, quiet space has a calm residential atmosphere" loading="lazy">
+      </a>
+      <a href="images/interior/gallery-image-2.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/gallery-image-2.jpg" alt="Unfinished, mostly empty bedroom with white walls, several open doors, and an open closet. Protective plastic covers the wood-look floor, with long flooring pieces or trim stacked in the foreground. Exposed or unfinished ceiling fixtures and vents are visible above, creating a quiet renovation work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/interior/hallway.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/hallway.jpg" alt="Narrow freshly painted white hallway with a small horizontal window at the far end and a green broom resting on clear protective plastic covering the floor. An open doorway on the left leads to another room, while a larger empty area extends to the right. The quiet, clean space has the practical atmosphere of an ongoing renovation." loading="lazy">
+      </a>
+      <a href="images/interior/IMG_0117.PNG" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/IMG_0117.PNG" alt="Empty, bright room with a large shuttered window, pale walls, and a glossy patterned tile floor with small black diamond accents. A folding chair rests near the doorway on the left, and a ceiling light and air vent are visible above. The quiet, recently cleared space has a simple residential atmosphere." loading="lazy">
+      </a>
+      <a href="images/interior/IMG_1073.JPEG" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/IMG_1073.JPEG" alt="Open-plan living room and kitchen prepared for renovation, with a central island, fireplace, ceiling fan, recessed lights, and built-in appliances covered in protective plastic. The tiled floor and kitchen surfaces are also protected, creating a tidy but unfinished work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/interior/IMG_1077.JPEG" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/IMG_1077.JPEG" alt="Empty bedroom with tan walls, a shuttered window, an open closet, and a white door. The tiled floor is covered with clear protective plastic, and a red fire extinguisher stands in the foreground beneath a ceiling light and air vent, creating a quiet renovation work-in-progress atmosphere" loading="lazy">
+      </a>
+      <a href="images/interior/IMG_1146.JPEG" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/IMG_1146.JPEG" alt="Spacious kitchen undergoing renovation, with a white island, granite countertops, exposed wood cabinet interiors, a refrigerator, stove, and tall ladder. A dark ceiling fan hangs above the tiled floor, while recessed lights, skylights, shuttered windows, and an adjoining doorway complete the bright residential space. The scene feels practical and unfinished." loading="lazy">
+      </a>
+      <a href="images/interior/IMG_1147.JPEG" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/IMG_1147.JPEG" alt="Bright, empty room with white walls, baseboards, and several shuttered windows surrounding a bay-window area. Brown patterned tile flooring with small black diamond accents covers the room, while a small piece of equipment rests near the windows. The clean, quiet space has a calm, recently renovated atmosphere." loading="lazy">
+      </a>
+      <a href="images/interior/room-before.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/room-before.jpg" alt="Unfinished room undergoing renovation, with patched drywall on the walls and ceiling, exposed ceiling wiring, and a floor covered in dust, tools, buckets, and construction materials. Doorways open to adjacent rooms, including a kitchen visible in the background, creating a practical work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/interior/Jroom-before.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/Jroom-before.jpg" alt="Partially built-in wooden shelving and hanging-rod framework fills a recessed closet or wall opening. A red-and-black cordless drill, a small level, and other hand tools rest on the shelves and framing. The surrounding drywall is patched but unfinished, and the dusty floor is covered with black protective sheeting and construction debris. The practical scene has a quiet renovation work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/interior/Jroom-after.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/Jroom-after.jpg" alt="Newly finished blue-gray walk-in closet with built-in shelves, a hanging area, and a high storage compartment. Protective plastic covers the floor, with a red power tool and hose in the foreground, while daylight enters through a window on the left. The clean renovation scene feels calm and practical." loading="lazy">
+      </a>
+      <a href="images/interior/final-room.JPEG" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/final-room.JPEG" alt="Four white paneled closet doors hang from a dark overhead track against a blue wall. A shelving unit filled with collectibles stands to the right, while a table with belongings and a basket sits to the left on dark wood-look flooring. The room feels lived-in and orderly." loading="lazy">
+      </a>
+      <a href="images/interior/room.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/room.jpg" alt="View through a white doorway into a bright room prepared for renovation, with clear plastic sheeting covering the floor, an open interior door, and a window with closed blinds in the background. White walls, trim, and adjacent doorways create a clean, quiet work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/interior/shower.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/shower.jpg" alt="Bathroom shower enclosure covered in clear plastic sheeting and sealed with masking tape during renovation. The gray walls, exposed shower fixture, protected ceiling openings, covered window, and wrapped toilet create a tidy but unfinished work-in-progress atmosphere. The plastic sheeting is marked with 3M." loading="lazy">
+      </a>
+      <a href="images/interior/sink.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/sink.jpg" alt="Bathroom vanity with white cabinet doors and drawers, a dark countertop, and a sink covered in protective plastic during renovation. A plastic-covered window is above the vanity, with a doorway to a bathroom containing a covered toilet on the right. The bright, tidy space has an unfinished work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/interior/stairs.jpg" class="fullGalleryItem" data-category="interior">
+        <img src="images/interior/stairs.jpg" alt="Bright stair landing and hallway undergoing renovation, with white walls, a handrail descending along the right side, and clear plastic sheeting protecting the floor and steps. Several ceiling fixtures are exposed or covered, while recessed lights illuminate the clean but unfinished residential space. The atmosphere is quiet and practical." loading="lazy">
+      </a>
+
+      <!-- CABINETS -->
+      <a href="images/cabinet/cabinet-before.jpg" class="fullGalleryItem" data-category="cabinets">
+        <img src="images/cabinet/cabinet-before.jpg" alt="Kitchen cabinets under renovation, with their doors and drawers removed to expose white shelves and cabinet interiors framed in unfinished wood. A microwave, electric range, tiled countertops, loose cabinet doors, and hardware fill the surrounding kitchen beneath a bright skylight. The practical space has an unfinished work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/cabinet/cabinet-refinishing.jpg" class="fullGalleryItem" data-category="cabinets">
+        <img src="images/cabinet/cabinet-refinishing.jpg" alt="Refinished gray-green kitchen cabinets line two walls around tiled countertops, with a microwave, dishwasher, oven, sink, and small items on the counters. Two skylights brighten the tiled floor, while a cordless drill rests on the left countertop. The clean, functional kitchen has a calm, recently updated atmosphere." loading="lazy">
+      </a>
+      <a href="images/cabinet/step-1.jpg" class="fullGalleryItem" data-category="cabinets">
+        <img src="images/cabinet/step-1.jpg" alt="Several unfinished wooden kitchen cabinet doors and panels lean against a white wall and rest on a light tiled floor. A person’s shoe is visible at the bottom edge. The quiet, practical scene suggests cabinet renovation in progress." loading="lazy">
+      </a>
+      <a href="images/cabinet/step-1pre.jpg" class="fullGalleryItem" data-category="cabinets">
+        <img src="images/cabinet/step-1pre.jpg" alt="Partially disassembled kitchen with wood-framed cabinets, exposed shelves, removed doors, and appliances around tiled countertops. A small whiteboard on the right reads Welcome to your new home and is signed below. The bright room has a practical, unfinished renovation atmosphere." loading="lazy">
+      </a>
+      <a href="images/cabinet/step-2.jpg" class="fullGalleryItem" data-category="cabinets">
+        <img src="images/cabinet/step-2.jpg" alt="Kitchen cabinets are being refinished in muted gray-green paint, with cabinet doors, drawers, countertops, and appliances covered in clear plastic and masking paper. A skylight and fluorescent light brighten the tiled kitchen, creating a practical renovation work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/cabinet/step-3.jpg" class="fullGalleryItem" data-category="cabinets">
+        <img src="images/cabinet/step-3.jpg" alt="Gray-green kitchen cabinets and a matching tall pantry door are freshly refinished around a tiled kitchen with white countertops. A skylight brightens the clean, quiet space, while paint buckets and supplies in the adjoining room suggest the renovation is still in progress." loading="lazy">
+      </a>
+      <a href="images/cabinet/step-4.jpg" class="fullGalleryItem" data-category="cabinets">
+        <img src="images/cabinet/step-4.jpg" alt="Freshly refinished gray-green kitchen cabinets and drawers surround a white dishwasher and tiled countertop with a sink. Cleaning supplies, boxes, and other renovation materials rest on the counter, while a bright windowed kitchen and tiled floor create a practical work-in-progress setting." loading="lazy">
+      </a>
+
+
+      <!-- COMMERCIAL -->
+      <a href="images/commercial/benches.jpg" class="fullGalleryItem" data-category="commercial">
+        <img src="images/commercial/benches.jpg" alt="Dark blue-gray vertical wall paneling and trim are freshly painted in a commercial interior under renovation. Clear plastic sheeting protects the windows and floor, with 3M printed on the masking tape. A partially covered doorway opens toward a wood-paneled area, creating a practical work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/commercial/final-color.jpg" class="fullGalleryItem" data-category="commercial">
+        <img src="images/commercial/final-color.jpg" alt="Freshly painted light beige wall beside a large window covered with blue protective plastic and masking tape. Plastic sheeting protects the floor in the narrow commercial interior, with a paint bucket and unfinished surfaces nearby. The tidy renovation scene has a quiet, practical work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/commercial/front-door-r.jpg" class="fullGalleryItem" data-category="commercial">
+        <img src="images/commercial/front-door-r.jpg" alt="Commercial storefront entrance with a dark-framed glass door and tall windows covered with tan protective paper and plastic sheeting. Partially visible printed text appears on the covering, including PLASTIC and SIDE. Drop cloths protect the pavement at the threshold, creating a bright, practical renovation work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/commercial/painting-ac.jpg" class="fullGalleryItem" data-category="commercial">
+        <img src="images/commercial/painting-ac.jpg" alt="A masked painter stands on a ladder applying dark paint to a commercial ceiling around exposed ducts, vents, lights, and wiring. Plastic sheeting protects the walls and fixtures below, while additional workers or covered equipment are visible in the room. The busy interior is undergoing a practical renovation." loading="lazy">
+      </a>
+      <a href="images/commercial/pre-ac.jpg" class="fullGalleryItem" data-category="commercial">
+        <img src="images/commercial/pre-ac.jpg" alt="A worker stands beside a tall ladder in a commercial interior while preparing a dark ceiling around exposed gray air ducts, vents, lights, and wiring. Plastic sheeting covers counters and equipment below, while windows and unfinished walls surround the work area. The practical scene has a focused renovation work-in-progress atmosphere." loading="lazy">
+      </a>
+      <a href="images/commercial/primer.jpg" class="fullGalleryItem" data-category="commercial">
+        <img src="images/commercial/primer.jpg" alt="Commercial interior being prepared for painting, with a worker near a ladder in the distance. Plastic sheeting covers the floor, windows, counters, and lower walls, while unfinished drywall, exposed ducts, recessed vents, and warm hanging lights fill the long room. The organized work-in-progress scene has a practical renovation atmosphere." loading="lazy">
+      </a>
+      <a href="images/commercial/process.jpg" class="fullGalleryItem" data-category="commercial">
+        <img src="images/commercial/process.jpg" alt="Commercial interior undergoing painting, with furniture and equipment wrapped in clear plastic and paint supplies arranged on the protected floor. A green step ladder stands in the foreground beneath a dark ceiling with exposed ducts, vents, and hanging light fixtures. Large windows brighten the spacious work area, creating a busy but organized renovation atmosphere." loading="lazy">
+      </a>
+      <a href="images/commercial/second-coat.jpg" class="fullGalleryItem" data-category="commercial">
+        <img src="images/commercial/second-coat.jpg" alt="Two painters work from a blue Genie GS-1930 lift to apply a second coat of paint to a bright commercial interior. Furniture and fixtures are covered with protective plastic, while exposed ducts, pendant lights, and a dark ceiling fill the wider renovation space. The organized work scene has a focused, practical atmosphere." loading="lazy">
+      </a>
+      <a href="images/commercial/wall-paint.jpg" class="fullGalleryItem" data-category="commercial">
+        <img src="images/commercial/wall-paint.jpg" alt="Commercial interior undergoing renovation, with a worker partially visible at the right edge and ladders, a blue lift, exposed ducts, and ceiling lights throughout the room. Walls and furnishings are covered with plastic sheeting, creating a busy, practical work-in-progress atmosphere." loading="lazy">
+      </a>
+
+      <!-- add the rest of your sorted photos here, following the same pattern -->
+    </div>
+
+    <div class="buttonContainer">
+      <a href="booking.html" class="contactButton"><h3>Get a Free Quote</h3></a>
+    </div>
+  </main>
+
+  <!-- Lightbox overlay -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview" tabindex="-1">
+    <button class="lightboxClose" id="lightboxClose" aria-label="Close">&times;</button>
+    <img src="" alt="" id="lightboxImg" loading="lazy">
+  </div>
+
+  <footer>
+    <div class="footerBox">
+      <div class="footerLogo">
+        <img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo showing a paint spray gun beside a stylized house roof and chimney, with the text ORANTES PAINTING LLC below. The navy blue and gold design on a white background presents a professional painting business identity.">
+      </div>
+      <div class="contactInfo">
+        <div class="oneLine">
+          <a href="tel:17029562409">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span>(702) 956-2409</span>
+          </a>
+        </div>
+        <div class="oneLine">
+          <a href="mailto:Orantespaintingllc@gmail.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span>Orantespaintingllc@gmail.com</span>
+          </a>
+        </div>
+        <div class="oneLine">
+          <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+          <span>License #0095838</span>
+        </div>
+      </div>  
+    </div>
+    <section class="bottomFooter">
+      <h3>Business Hours</h3>
+      <div>
+        <ul>
+          <li><span><i class="fa-regular fa-clock" aria-hidden="true"></i></span> Monday-Saturday: 7am to 5pm</li>
+          <li><span><i class="fa-regular fa-clock" aria-hidden="true"></i></span> Sunday: Closed</li>
+        </ul>
+      </div>
+      <h3>Service Area</h3>
+      <div class="serviceArea">
+        <ul>
+          <li><p>Las Vegas, NV</p></li>
+        </ul>
+      </div>
+      <h3>Quick Links</h3>
+      <div class="quickLinks">
+        <ul>
+          <li><a href="index.html"><p>Home</p></a></li>
+          <li><a href="services.html"><p>Services</p></a></li>
+          <li><a href="gallery.html"><p>Gallery</p></a></li>
+          <li><a href="review.html"><p>Reviews</p></a></li>
+          <li><a href="booking.html"><p>Book Now</p></a></li>
+          <li><a href="privacy-policy.html"><p>Privacy Policy</p></a></li>
+        </ul>   
+      </div>
+      <h3>Follow Us On</h3>
+      <div class="socialIcon">
+        <!--add Javascript to open in a new page-->
+        <div>
+          <a href="https://www.instagram.com/orantes_painting_llc/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        </div>
+        <div>
+          <a href="https://m.facebook.com/profile.php?id=61592579204648" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+        </div>
+        <div>
+          <a href="https://www.tiktok.com/@orantespaintingllc?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Tiktok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section> 
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

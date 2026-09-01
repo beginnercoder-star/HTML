@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Request a free painting quote from Orantes Painting in Las Vegas" />
+    <title>Book a Quote | Orantes Painting Company</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+</head>
+<body>
+  <a href="#main" class="skipLink">Skip to main content</a>
+  <header class="header">
+    <nav aria-label="Main navigation">
+      <a href="index.html"><img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo showing a paint spray gun beside a stylized house roof and chimney, with the text ORANTES PAINTING LLC below. The navy blue and gold design on a white background presents a professional painting business identity."></a>
+      <div class="menu" id="navLinks">
+        <button class="fa-solid fa-xmark" onclick="hideMenu()" aria-label="Close menu"></button>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="review.html">Reviews</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+        </ul>
+      </div>
+      <button class="fa-solid fa-bars" onclick="showMenu()" aria-label="Open menu" aria-expanded="false" id="menuToggle"></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="bookingIntro">
+      <span class="serviceEyebrow">Let's Get Started</span>
+      <h1 class="serviceTitle">Request a Free Quote</h1>
+      <p class="sectionLead">Tell us about your project — we'll follow up to schedule your free, no-obligation estimate.</p>
+    </section>
+
+    <div class="form">
+      <form class="requestCard" id="quoteForm" aria-label="Free quote request form">
+        <h2>Project Details</h2>
+
+        <div class="row field">
+          <div>
+            <label for="name" id="name-label">Full Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name"/>
+          </div>
+          <div>
+            <label for="phone" id="phone-number">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required placeholder="(XXX) XXX-XXXX"/>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email" id="email-label">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="your.email@example.com"/>
+        </div>
+
+        <div class="row field">
+          <div class="dropdown">
+            <label for="service" id="dropdown-label">Service Needed</label>
+            <select id="service" name="service" required>
+              <option value="" disabled selected>Select a Service</option>
+              <option value="exterior">Exterior Painting</option>
+              <option value="interior">Interior Painting</option>
+              <option value="cabinet-refinishing">Cabinet Refinishing</option>
+              <option value="commercial">Commercial Painting</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <!--Hidden option for other-->
+          <div class="field" id="otherServiceField" style="display: none;">
+            <label for="otherService" id="other-service-label">Please specify</label>
+            <input type="text" id="otherService" name="otherService" placeholder="Tell us what you need painted"/>
+          </div>
+          <div class="dropdown">
+            <label for="area" id="service-area">Service Area</label>
+            <select id="area" name="area" required>
+              <option value="" disabled selected>Select your Area</option>
+              <option value="vegas">Las Vegas</option>
+              <option value="summerlin">Summerlin</option>
+              <option value="north-vegas">North Las Vegas</option>
+              <option value="henderson">Henderson</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <!--Other option-->
+          <div class="field" id="otherAreaField" style="display: none;">
+            <label for="otherArea" id="other-area-label">Please specify your area</label>
+            <input type="text" id="otherArea" name="otherArea" placeholder="Tell us your city or neighborhood"/>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="description" id="project-description">Project Description</label>
+          <textarea cols="30" rows="8" name="description" id="description" placeholder="Please describe your project in detail..."></textarea>
+        </div>
+
+        <div class="field">
+          <p class="fieldHint">
+            <i class="fa-solid fa-camera" aria-hidden="true"></i>
+            Have photos of your project? 
+            <a href="sms:17029562409?body=Hi! Here are some photos of my project. My name is: " class="photoTextLink">Tap here to text them to us</a> 
+            — we'll know exactly who they're from.
+          </p>
+        </div>
+
+        <div class="hint">
+          <i class="fa-regular fa-clock" aria-hidden="true"></i>
+          <p>Preferred time: Flexible/ Morning / Afternoon / Evening</p>
+        </div>
+
+        <button type="submit" class="submit" id="submitBtn">Send Request</button>
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+      </form>
+
+      <div class="contactColumn">
+        <div class="grid">
+          <a class="contactCard" href="tel:17029562409">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <div class="cardText">
+              <h3>Call Us</h3>
+              <div class="sub">Mon-Sat, 7am-5pm</div> 
+            </div>
+          </a>
+
+          <a class="contactCard" href="sms:17029562409">
+            <i class="fa-solid fa-message" aria-hidden="true"></i>
+            <div class="cardText">
+              <h3>Text Us</h3>
+              <div class="sub">Quick Response</div>
+            </div>
+          </a>
+
+          <a class="contactCard" href="mailto:Orantespaintingllc@gmail.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <div class="cardText">
+              <h3>Email Us</h3>
+              <div class="sub">Send your project details</div>
+            </div>
+          </a>
+
+          <div class="contactCard">
+            <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+            <div class="cardText">
+              <h3>Service Area</h3>
+              <div class="sub">We come to you</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="areaCard" id="map">
+          <h3>Our Service Area</h3>
+          <p>We serve all areas of Las Vegas</p>
+          <div id="serviceMap" role="img" aria-label="Interactive map showing our Las Vegas service area, including Summerlin, North Las Vegas, and Henderson"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footerBox">
+      <div class="footerLogo">
+        <img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo showing a paint spray gun beside a stylized house roof and chimney, with the text ORANTES PAINTING LLC below. The navy blue and gold design on a white background presents a professional painting business identity.">
+      </div>
+      
+      <div class="contactInfo">
+        <div class="oneLine">
+          <a href="tel:17029562409">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <span>(702) 956-2409</span>
+          </a>
+        </div>
+        
+        <div class="oneLine">
+          <a href="mailto:Orantespaintingllc@gmail.com">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span>Orantespaintingllc@gmail.com</span>
+          </a>
+        </div>
+
+        <div class="oneLine">
+          <i class="fa-solid fa-id-card" aria-hidden="true"></i>
+          <span>License #0095838</span>
+        </div>
+      </div>  
+    </div>
+    <section class="bottomFooter">
+      <h3>Business Hours</h3>
+      <div>
+        <ul>
+          <li><span><i class="fa-regular fa-clock" aria-hidden="true"></i></span> Monday-Saturday: 7am to 5pm</li>
+          <li><span><i class="fa-regular fa-clock" aria-hidden="true"></i></span> Sunday: Closed</li>
+        </ul>
+      </div>
+        
+      <h3>Service Area</h3>
+      <div class="serviceArea">
+        <ul>
+          <li><p>Las Vegas, NV</p></li>
+        </ul>
+      </div>
+
+      <h3>Quick Links</h3>
+      <div class="quickLinks">
+        <ul>
+          <li><a href="index.html"><p>Home</p></a></li>
+          <li><a href="services.html"><p>Services</p></a></li>
+          <li><a href="gallery.html"><p>Gallery</p></a></li>
+          <li><a href="review.html"><p>Reviews</p></a></li>
+          <li><a href="booking.html"><p>Book Now</p></a></li>
+          <li><a href="privacy-policy.html"><p>Privacy Policy</p></a></li>
+        </ul>   
+      </div>
+
+      <h3>Follow Us On</h3>
+      <div class="socialIcon">
+        <div>
+          <a href="https://www.instagram.com/orantes_painting_llc/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+        </div>
+        <div>
+          <a href="https://m.facebook.com/profile.php?id=61592579204648" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+        </div>
+        <div>
+          <a href="https://www.tiktok.com/@orantespaintingllc?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Tiktok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section> 
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
