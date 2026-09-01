@@ -8,6 +8,7 @@
     --gold: #dbaa5c;
     --gold-bright: #e09927;
     --cream: #f3f1ed;
+    --header-offset: 100px;
 }
 *{
     margin: 0;
@@ -21,6 +22,7 @@ html, body{
 html{
     overflow-y: scroll;
     scrollbar-gutter: stable;
+    scroll-padding-top: var(--header-offset);
 }
 body {
     position: relative;
@@ -1516,6 +1518,9 @@ input[type="file"]::file-selector-button{
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
+}
+.fullGalleryGrid[hidden]{
+    display: none;
 }
 .fullGalleryItem{
     display: block;

@@ -295,26 +295,59 @@ if (baSliders.length){
   });
 }
 
-// Gallery filters + lightbox
+// Add a screen-reader-only hint to every gallery image link
+document.querySelectorAll('.fullGalleryItem').forEach(link => {
+  const hint = document.createElement('span');
+  hint.className = 'sr-only';
+  hint.textContent = ' (opens image preview)';
+  link.appendChild(hint);
+});
+// Gallery filters — ARIA tabs pattern
 const filterBtns = document.querySelectorAll('.filterBtn');
 
 if (filterBtns.length){
-  const galleryItems = document.querySelectorAll('.fullGalleryItem');
+  const tabs = Array.from(filterBtns);
+  const panels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-pressed', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-pressed', 'true');
+  function activateTab(tab){
+    tabs.forEach(t => {
+      const selected = t === tab;
+      t.classList.toggle('active', selected);
+      t.setAttribute('aria-selected', selected);
+      t.setAttribute('tabindex', selected ? '0' : '-1');
+    });
 
-      const filter = btn.dataset.filter;
-      galleryItems.forEach(item => {
-        const show = filter === 'all' || item.dataset.category === filter;
-        item.classList.toggle('hidden', !show);
-      });
+    panels.forEach(panel => {
+      panel.hidden = panel.id !== `panel-${tab.dataset.filter}`;
+    });
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateTab(tab));
+
+    tab.addEventListener('keydown', (e) => {
+      let newIndex;
+      switch (e.key){
+        case 'ArrowRight':
+        case 'ArrowDown':
+          newIndex = (index + 1) % tabs.length;
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          newIndex = (index - 1 + tabs.length) % tabs.length;
+          break;
+        case 'Home':
+          newIndex = 0;
+          break;
+        case 'End':
+          newIndex = tabs.length - 1;
+          break;
+        default:
+          return;
+      }
+      e.preventDefault();
+      tabs[newIndex].focus();
+      activateTab(tabs[newIndex]);
     });
   });
 }
