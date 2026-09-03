@@ -171,7 +171,7 @@ nav .fa-bars{
     box-sizing: border-box;
 }
 .heroBanner{
-    background-image: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.55)100%), url(images/exterior/IMG_0167.jpg);
+    background-image: linear-gradient(180deg, rgba(93,163,214,0.28) 0%, rgba(93,163,214,0.04) 30%, rgba(40,22,8,0.75) 100%), url(images/exterior/IMG_0167.jpg);
     background-size: cover;
     background-position: center;
     height: 75vh;
@@ -412,7 +412,7 @@ nav .fa-bars{
     flex: 0 0 300px;
 }
 .reviewStars{
-    color: var(--gold);
+    color: #96650b;
     font-size: 16px;
     margin-bottom: 8px;
 }
@@ -931,11 +931,11 @@ button.submit:disabled{
     min-height: 18px;
 }
 .status.ok{
-    color: var(--navy-dark);
+    color: var(--cream);
     font-weight: 600;
 }
 .status.error{
-    color: #c0392b;
+    color: #ff6b5b;
     font-weight: 600;
 }
 /*contact grid*/
