@@ -82,29 +82,52 @@ function syncMenuInert(){
 }
 
 // Marquee — only runs on pages that actually have .marqueeTrack
-const marqueeTrackForWidth = document.querySelector('.marqueeTrack');
-const firstMarqueeSet = document.querySelector('.marqueeSet');
+// =========================
+// SLIDING REVIEWS
+// =========================
 
-if (marqueeTrackForWidth && firstMarqueeSet) {
+const marqueeTrack = document.querySelector('.marqueeTrack');
+const marqueeSets = document.querySelectorAll('.marqueeSet');
+
+if (marqueeTrack && marqueeSets.length >= 2) {
 
     function setMarqueeWidth() {
-        marqueeTrackForWidth.style.setProperty(
+
+        const firstSet = marqueeSets[0];
+
+        const setWidth = firstSet.getBoundingClientRect().width;
+
+        const trackStyle = window.getComputedStyle(marqueeTrack);
+
+        const gap =
+            parseFloat(trackStyle.columnGap) ||
+            parseFloat(trackStyle.gap) ||
+            0;
+
+        marqueeTrack.style.setProperty(
             '--set-width',
-            (firstMarqueeSet.offsetWidth + 20) + 'px'
+            (setWidth + gap) + 'px'
         );
     }
 
-    setMarqueeWidth();
+    // Calculate after the page has rendered
+    requestAnimationFrame(setMarqueeWidth);
+
+    // Recalculate after everything loads
+    window.addEventListener('load', setMarqueeWidth);
+
+    // Recalculate if screen size changes
     window.addEventListener('resize', setMarqueeWidth);
 }
 
 
-const marqueeTrack = document.querySelector('.marqueeTrack');
-
+/* Tap/click to pause on phones */
 if (marqueeTrack) {
 
     marqueeTrack.addEventListener('click', () => {
+
         marqueeTrack.classList.toggle('isPaused');
+
     });
 
 }

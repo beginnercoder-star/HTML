@@ -390,43 +390,66 @@ nav .fa-bars{
     transform: translateY(-2px);
 }
 
-/*sliding reviews*/
-.marqueeTrack.paused{
-    animation-play-state: paused;
-}
+/* =========================
+   SLIDING REVIEWS
+========================= */
 
-@media (hover: hover) {
-    .marqueeTrack:hover {
-        animation-play-state: paused;
-    }
-}
-
-.marqueeTrack.isPaused {
-    animation-play-state: paused;
-}
-
-.marqueeWrapper{
+.marqueeWrapper {
     overflow: hidden;
     width: 100%;
-    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    position: relative;
 }
 
-.marqueeTrack{
-    display: flex;
-    width: max-content;
-    animation: scrollLeft 90s linear infinite;
+/* Fading edges without using mask-image */
+.marqueeWrapper::before,
+.marqueeWrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 35px;
+    z-index: 2;
+    pointer-events: none;
 }
 
-.marqueeSet{
+.marqueeWrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.marqueeWrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #ffffff, transparent);
+}
+
+
+.marqueeTrack {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
     gap: 20px;
-    flex-shrink: 0;
-    margin-right: 20px;
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: scrollLeft 65s linear infinite;
+    position: relative;
+    z-index: 1;
 }
 
-.reviewCard{
+
+/* Individual duplicated sets */
+.marqueeSet {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 20px;
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+}
+
+
+/* Review cards */
+.reviewCard {
     background: #ffffff;
     border: 1px solid #e5e0d5;
     border-radius: 12px;
@@ -434,50 +457,65 @@ nav .fa-bars{
     text-align: left;
     box-shadow: 0 4px 14px rgba(0,0,0,0.06);
     flex: 0 0 300px;
+    width: 300px;
 }
 
-.reviewStars{
+
+/* Stars */
+.reviewStars {
     color: #96650b;
     font-size: 16px;
     margin-bottom: 8px;
 }
 
-.reviewText{
+
+/* Review text */
+.reviewText {
     font-size: 14px;
     line-height: 1.6;
     color: #333;
     margin-bottom: 12px;
 }
 
-.reviewAuthor{
+
+/* Author */
+.reviewAuthor {
     font-size: 13px;
     font-weight: 600;
     color: var(--navy-dark);
 }
 
-@keyframes scrollLeft{
-    from{
-        transform: translateX(0);
-    }
 
-    to{
-        transform: translateX(calc(-1 * var(--set-width)));
+/* Pause when hovering with a mouse */
+@media (hover: hover) {
+    .marqueeTrack:hover {
+        animation-play-state: paused;
     }
 }
 
-@media (prefers-reduced-motion: reduce){
-    .marqueeTrack{
-        animation: none;
+
+/* Mobile tap-to-pause */
+.marqueeTrack.isPaused {
+    animation-play-state: paused;
+}
+
+
+/* Infinite scrolling animation */
+@keyframes scrollLeft {
+    from {
+        transform: translate3d(0, 0, 0);
     }
 
-    .galleryItem{
-        animation: none;
-        opacity: 1;
+    to {
+        transform: translate3d(calc(-1 * var(--set-width)), 0, 0);
     }
+}
 
-    .cursor{
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .marqueeTrack {
         animation: none;
-        opacity: 0;
     }
 }
 
@@ -1966,7 +2004,7 @@ textarea:focus-visible{
 /*google reviews*/
 
     .marqueeTrack{
-    animation-duration: 45s;
+    animation-duration: 90s;
     }
 /*SERVICES.HTML*/
     .processGrid{
