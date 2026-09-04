@@ -85,9 +85,9 @@ function syncMenuInert(){
 const marqueeTrackForWidth = document.querySelector('.marqueeTrack');
 const firstMarqueeSet = document.querySelector('.marqueeSet');
 
-if (marqueeTrackForWidth && firstMarqueeSet){
+if (marqueeTrackForWidth && firstMarqueeSet) {
 
-    function setMarqueeWidth(){
+    function setMarqueeWidth() {
         marqueeTrackForWidth.style.setProperty(
             '--set-width',
             (firstMarqueeSet.offsetWidth + 20) + 'px'
@@ -101,7 +101,7 @@ if (marqueeTrackForWidth && firstMarqueeSet){
 
 const marqueeTrack = document.querySelector('.marqueeTrack');
 
-if (marqueeTrack){
+if (marqueeTrack) {
 
     marqueeTrack.addEventListener('click', () => {
         marqueeTrack.classList.toggle('isPaused');

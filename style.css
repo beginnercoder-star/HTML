@@ -414,9 +414,8 @@ nav .fa-bars{
 
 .marqueeTrack{
     display: flex;
-    gap: 20px;
     width: max-content;
-    animation: scrollLeft 65s linear infinite;
+    animation: scrollLeft 90s linear infinite;
 }
 
 .marqueeSet{
@@ -424,6 +423,7 @@ nav .fa-bars{
     flex-direction: row;
     gap: 20px;
     flex-shrink: 0;
+    margin-right: 20px;
 }
 
 .reviewCard{
@@ -461,7 +461,7 @@ nav .fa-bars{
     }
 
     to{
-        transform: translateX(calc(-1 * var(--set-width, 50%)));
+        transform: translateX(calc(-1 * var(--set-width)));
     }
 }
 
