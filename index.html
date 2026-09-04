@@ -69,7 +69,7 @@
   <header class="header">
     <nav aria-label="Main navigation">
       <a href="index.html"><img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo featuring a paint spray gun on the left, a house with a peaked roof in the center with gold and navy blue accents, and the company name Orantes Painting LLC in large navy and gold text. The logo conveys professionalism and trust for a residential painting service."></a>
-      <div class="menu" id="navLinks">
+      <div class="menu" id="navLinks" inert>
         <button class="fa-solid fa-xmark" onclick="hideMenu()" aria-label="Close menu"></button>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -88,6 +88,7 @@
         <h1 class="offerBlock">
           <span class="offerTop">We offer</span>
           <span class="offerWord"><span id="typedWord" aria-hidden="true"></span><span class="cursor" aria-hidden="true"></span></span>
+          <span class="sr-only">interior painting, exterior painting, cabinet refinishing, and commercial painting</span>
           <span class="offerBottom">services you can trust</span>
         </h1>
 
@@ -112,14 +113,22 @@
 
       <div class="badgeRow badgeBottom">
         <div class="badge">
-          <i class="fa-regular fa-house" aria-hidden="true"></i>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.90" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" aria-hidden="true">
+            <path d="M3 10.5L12 3l9 7.5"/>
+            <path d="M5.5 9v10.5a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9"/>
+            <path d="M9.5 20.5v-6a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v6"/>
+          </svg>
           <span><p>Locally-Owned</p></span>
         </div>
         
         <div class="badge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="24" height="24" aria-hidden="true">
+            <path d="M4 5.5a1.5 1.5 0 0 1 1.5-1.5h13a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 4v-4H5.5A1.5 1.5 0 0 1 4 14.5z"/>
+            <path d="M7.5 9.5h9"/>
+            <path d="M7.5 12.5h5.5"/>
+          </svg>
           <span><p lang="es">Hablamos Espa&ntilde;ol</p></span>
-        </div>
-      </div> 
+        </div> 
     </section>
 
 <!--Start of Credibility Section-->
@@ -159,6 +168,7 @@
           </a>
         </div>
         
+       <!--Start of Marquee Section-->
         <div class="marqueeWrapper">
           <div class="marqueeTrack" aria-hidden="true">
 
@@ -240,6 +250,11 @@
 
           </div>
         </div>
+
+        <button id="marqueePauseBtn" class="marqueePauseBtn" aria-pressed="false">
+          <i class="fa-solid fa-pause" aria-hidden="true"></i>
+          <span class="sr-only">Pause scrolling reviews</span>
+        </button>
         <p class="sr-only">Showing a sample of our 5 out of 5 star customer reviews. Visit the Reviews page for the full list.</p>
       </section>
 <!--Owners Story-->

@@ -17,7 +17,7 @@
   <header class="header">
     <nav aria-label="Main navigation">
       <a href="index.html"><img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo featuring a paint spray gun on the left, a house with a peaked roof in the center with gold and navy blue accents, and the company name Orantes Painting LLC in large navy and gold text. The logo conveys professionalism and trust for a residential painting service."></a>
-      <div class="menu" id="navLinks">
+      <div class="menu" id="navLinks" inert>
         <button class="fa-solid fa-xmark" onclick="hideMenu()" aria-label="Close menu"></button>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -78,8 +78,9 @@
           </div>
           <!--video-->
           <div class="processPhoto processPhotoWide">
-            <video controls controlList="nofullscreen" playsinline preload="metadata" poster="images/interior/IMG_1147.JPEG"  aria-label="Final walkthrough video of completed interior painting project">
+            <video controls playsinline preload="metadata" poster="images/interior/IMG_1147.JPEG"  aria-label="Final walkthrough video of completed interior painting project">
               <source src="images/interior/walkthrough.mp4" type="video/mp4">
+              <track kind="captions" src="images/interior/walkthrough.vtt" srclang="en" label="English">
               Your browser doesn't support embedded video.
             </video>
             <p class="processCaption">Final walkthrough</p>

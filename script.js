@@ -55,19 +55,48 @@ if (el){
 var navLinks = document.getElementById("navLinks");
 
 function showMenu(){
-  if (navLinks) navLinks.style.right = "0";
+  if (navLinks){
+    navLinks.inert = false;
+    navLinks.style.right = "0";
+  }
   const btn = document.getElementById('menuToggle');
   if (btn) btn.setAttribute('aria-expanded', 'true');
 }
 
 function hideMenu(){
-  if (navLinks) navLinks.style.right = "-200px";
+  if (navLinks){
+    navLinks.style.right = "-200px";
+    navLinks.inert = true;
+  }
   const btn = document.getElementById('menuToggle');
   if (btn){
     btn.setAttribute('aria-expanded', 'false');
     btn.focus();
   }
 }
+
+function syncMenuInert(){
+  if (!navLinks) return;
+  const isDesktop = window.matchMedia('(min-width: 700px)').matches;
+  navLinks.inert = isDesktop ? false : (navLinks.style.right !== '0px');
+}
+
+//marquee pause button
+const marqueeBtn = document.getElementById('marqueePauseBtn');
+const marqueeTrackEl = document.querySelector('.marqueeTrack');
+
+if (marqueeBtn && marqueeTrackEl){
+  marqueeBtn.addEventListener('click', () => {
+    const isPaused = marqueeTrackEl.classList.toggle('paused');
+    marqueeBtn.setAttribute('aria-pressed', isPaused);
+    marqueeBtn.querySelector('i').className = isPaused ? 'fa-solid fa-play' : 'fa-solid fa-pause';
+    marqueeBtn.querySelector('.sr-only').textContent = isPaused ? 'Resume scrolling reviews' : 'Pause scrolling reviews';
+  });
+}
+
+// Sync the inert state of the nav menu on window resize, and also run once on page load
+window.addEventListener('resize', syncMenuInert);
+syncMenuInert(); // run once on load
 
 // Services carousel: arrows + dots + swipe sync, manual only, infinite loop
 const carouselTrack = document.querySelector('.services');
