@@ -391,20 +391,14 @@ nav .fa-bars{
 }
 
 /*sliding reviews*/
-.marqueePauseBtn{
-    background: transparent;
-    border: 2px solid var(--navy-dark);
-    color: var(--navy-dark);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin: 16px auto 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 .marqueeTrack.paused{
+    animation-play-state: paused;
+}
+.marqueeTrack:hover{
+    animation-play-state: paused;
+}
+.marqueeTrack.isPaused {
     animation-play-state: paused;
 }
 .marqueeWrapper{
@@ -417,7 +411,12 @@ nav .fa-bars{
     display: flex;
     gap: 20px;
     width: max-content;
-    animation: scrollLeft 180s linear infinite;
+    animation: scrollLeft 75s linear infinite;
+}
+.marqueeSet{
+    display: flex;
+    gap: 20px;
+    padding-right: 0;
 }
 .marqueeWrapper:hover .marqueeTrack{
     animation-play-state: paused;
@@ -449,7 +448,7 @@ nav .fa-bars{
 }
 @keyframes scrollLeft{
     from{ transform: translateX(0); }
-    to{ transform: translateX(-50%); }
+    to{ transform: translateX(calc(-1 * var(--set-width, 50%))); }
 }
 
 @media (prefers-reduced-motion: reduce){

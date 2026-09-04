@@ -81,18 +81,29 @@ function syncMenuInert(){
   navLinks.inert = isDesktop ? false : (navLinks.style.right !== '0px');
 }
 
-//marquee pause button
-const marqueeBtn = document.getElementById('marqueePauseBtn');
-const marqueeTrackEl = document.querySelector('.marqueeTrack');
+// Marquee — only runs on pages that actually have .marqueeTrack
+const marqueeTrackForWidth = document.querySelector('.marqueeTrack');
+const firstMarqueeSet = document.querySelector('.marqueeSet');
 
-if (marqueeBtn && marqueeTrackEl){
-  marqueeBtn.addEventListener('click', () => {
-    const isPaused = marqueeTrackEl.classList.toggle('paused');
-    marqueeBtn.setAttribute('aria-pressed', isPaused);
-    marqueeBtn.querySelector('i').className = isPaused ? 'fa-solid fa-play' : 'fa-solid fa-pause';
-    marqueeBtn.querySelector('.sr-only').textContent = isPaused ? 'Resume scrolling reviews' : 'Pause scrolling reviews';
-  });
+if (marqueeTrackForWidth && firstMarqueeSet){
+  function setMarqueeWidth(){
+    marqueeTrackForWidth.style.setProperty('--set-width', firstMarqueeSet.offsetWidth + 'px');
+  }
+  setMarqueeWidth();
+  window.addEventListener('resize', setMarqueeWidth);
 }
+const marqueeTrack = document.querySelector('.marqueeTrack');
+
+marqueeTrack.addEventListener('click', () => {
+    const isPaused = marqueeTrack.style.animationPlayState === 'paused';
+
+    marqueeTrack.style.animationPlayState = isPaused ? 'running' : 'paused';
+});
+
+// Toggle pause on click for marquee track
+marqueeTrack.addEventListener('click', () => {
+    marqueeTrack.classList.toggle('isPaused');
+});
 
 // Sync the inert state of the nav menu on window resize, and also run once on page load
 window.addEventListener('resize', syncMenuInert);
