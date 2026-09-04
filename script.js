@@ -86,24 +86,28 @@ const marqueeTrackForWidth = document.querySelector('.marqueeTrack');
 const firstMarqueeSet = document.querySelector('.marqueeSet');
 
 if (marqueeTrackForWidth && firstMarqueeSet){
-  function setMarqueeWidth(){
-    marqueeTrackForWidth.style.setProperty('--set-width', firstMarqueeSet.offsetWidth + 'px');
-  }
-  setMarqueeWidth();
-  window.addEventListener('resize', setMarqueeWidth);
+
+    function setMarqueeWidth(){
+        marqueeTrackForWidth.style.setProperty(
+            '--set-width',
+            (firstMarqueeSet.offsetWidth + 20) + 'px'
+        );
+    }
+
+    setMarqueeWidth();
+    window.addEventListener('resize', setMarqueeWidth);
 }
+
+
 const marqueeTrack = document.querySelector('.marqueeTrack');
 
-marqueeTrack.addEventListener('click', () => {
-    const isPaused = marqueeTrack.style.animationPlayState === 'paused';
+if (marqueeTrack){
 
-    marqueeTrack.style.animationPlayState = isPaused ? 'running' : 'paused';
-});
+    marqueeTrack.addEventListener('click', () => {
+        marqueeTrack.classList.toggle('isPaused');
+    });
 
-// Toggle pause on click for marquee track
-marqueeTrack.addEventListener('click', () => {
-    marqueeTrack.classList.toggle('isPaused');
-});
+}
 
 // Sync the inert state of the nav menu on window resize, and also run once on page load
 window.addEventListener('resize', syncMenuInert);
