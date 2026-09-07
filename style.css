@@ -167,6 +167,7 @@ nav .fa-bars{
     width: 85%;
     padding: 20px;
     margin: 0 auto;
+    margin-top: 20vh;
     position: relative;
     padding-bottom: 90px;
     box-sizing: border-box;
@@ -178,7 +179,7 @@ nav .fa-bars{
     height: 75vh;
     display: flex;
     justify-content: center;
-    align-items: flex-end;   
+    align-items: center;   
     
 }
 
