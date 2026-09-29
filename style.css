@@ -219,9 +219,8 @@ nav .fa-bars{
 .heroBanner{
     position: relative;
     background-image:
-        radial-gradient(ellipse 90% 45% at 50% 45%, rgba(10,27,61,0.55), transparent 75%),
-        linear-gradient(180deg, rgba(10,27,61,0.35) 0%, rgba(10,27,61,0.50) 45%, rgba(10,27,61,0.70) 100%),
-        url(images/exterior/IMG_0167.jpg);
+            linear-gradient(180deg, rgba(93,163,214,0.29) 0%, rgba(93,163,214,0.039) 30%, rgba(40,22,8,0.74) 85%),
+            url(images/exterior/IMG_0167.jpg);
     background-size: 115% auto;
     background-position: center 0%;
     min-height: 53vh;
