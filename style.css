@@ -518,14 +518,9 @@ nav .fa-bars{
     flex: 0 0 auto;
     flex-wrap: nowrap;
 }
-<<<<<<< HEAD
-.marqueeTrack .reviewCard{
-=======
-
 
 /* Review cards */
 .marqueeTrack .reviewCard {
->>>>>>> 100d5ebea598de52ddafeafced15c17b73db4343
     background: #ffffff;
     border: 1px solid #e5e0d5;
     border-radius: 12px;
@@ -535,40 +530,22 @@ nav .fa-bars{
     flex: 0 0 300px;
     width: 300px;
 }
-<<<<<<< HEAD
-.reviewStars{
-=======
-
 
 /* Stars */
 .marqueeTrack .reviewStars {
->>>>>>> 100d5ebea598de52ddafeafced15c17b73db4343
     color: #96650b;
     font-size: 16px;
     margin-bottom: 8px;
 }
-<<<<<<< HEAD
-.reviewText{
-    font-size: 15px;
-=======
-
-
 /* Review text */
 .marqueeTrack .reviewText {
     font-size: 14px;
->>>>>>> 100d5ebea598de52ddafeafced15c17b73db4343
     line-height: 1.6;
     color: #333;
     margin-bottom: 12px;
 }
-<<<<<<< HEAD
-.reviewAuthor{
-=======
-
-
 /* Author */
 .marqueeTrack .reviewAuthor {
->>>>>>> 100d5ebea598de52ddafeafced15c17b73db4343
     font-size: 13px;
     font-weight: 600;
     color: var(--navy-dark);
