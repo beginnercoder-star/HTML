@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -68,7 +68,7 @@
   <a href="#main" class="skipLink">Skip to main content</a>
   <header class="header">
     <nav aria-label="Main navigation">
-      <a href="index.html"><img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo featuring a paint spray gun on the left, a house with a peaked roof in the center with gold and navy blue accents, and the company name Orantes Painting LLC in large navy and gold text. The logo conveys professionalism and trust for a residential painting service."></a>
+      <a href="index.html"><img src="orantes_painting_transparent.png" alt="Orantes Painting LLC, home"></a>
       <div class="menu" id="navLinks" inert>
         <button class="fa-solid fa-xmark" onclick="hideMenu()" aria-label="Close menu"></button>
         <ul>
@@ -84,25 +84,41 @@
   </header>
   <main id="main">
     <div class="heroBanner">
-      <div class="textBox">
-        <h1 class="offerBlock">
+      <div class="heroInner">
+        <h1 class="heroHeadline">Professional Painting Services in Las Vegas, NV</h1>
+        <p class="offerSubtext">
           <span class="offerTop">We offer</span>
           <span class="offerWord"><span id="typedWord" aria-hidden="true"></span><span class="cursor" aria-hidden="true"></span></span>
           <span class="sr-only">interior painting, exterior painting, cabinet refinishing, and commercial painting</span>
           <span class="offerBottom">services you can trust</span>
-        </h1>
-
-        <a href="booking.html" class="quoteButton">Get a Free Quote</a>
+        </p>
       </div>
-    </div> 
+    </div>
+    
+    <div class="heroStatsCard">
+      <div class="heroStatsGroup">
+        <div class="heroStat">
+          <span class="heroStatNum">10+</span>
+          <span class="heroStatLabel">Years</span>
+        </div>
+        <div class="heroStat">
+          <span class="heroStatNum">100+</span>
+          <span class="heroStatLabel">Homes</span>
+        </div>
+        <div class="heroStat">
+          <span class="heroStatNum">5.0<span class="star">★</span></span>
+          <span class="heroStatLabel">Rating</span>
+        </div>
+      </div>
+      <a href="booking.html" class="quoteButton heroStatsButton">Get a Free Quote</a>
+    </div>
+
 <!--Trust Badges-->
     <section class="trustBadges" aria-label="Company credentials">
       <div class="badgeRow badgeTop">
         <div class="badge">
           <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield-check-icon lucide-shield-check"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-          <span>
             <p class="licenseNum">License #0095838</p>
-          </span>
         </div>
 
         <div class="badge">
@@ -129,33 +145,19 @@
           </svg>
           <span><p lang="es">Hablamos Espa&ntilde;ol</p></span>
         </div> 
+      </div>
     </section>
 
 <!--Start of Credibility Section-->
     <section class="credibility">
      <div class="credibilityIntro">
-        <span class="serviceEyebrow">Why Homeowners Trust Us</span>
+        <h2 class="serviceEyebrow">Why Homeowners Trust Us</h2>
         <p class="sectionLead">More than a paint job — a promise of quality</p>
      </div>
 
-      <div class="statsStrip">
-        <div class="statItem">
-          <span class="statNumber">10+</span>
-          <span class="statLabel">Years Painting Las Vegas</span>
-        </div>
-        <div class="statItem">
-          <span class="statNumber">100+</span>
-          <span class="statLabel">Homes Completed</span>
-        </div>
-        <div class="statItem">
-          <span class="statNumber">5.0★</span>
-          <span class="statLabel">Google Rating</span>
-        </div>
-      </div>
 
 <!--Start of Testimonials-->
       <section class="testimonials" aria-label="Customer testimonials">
-        <span class="serviceEyebrow">What Customers Say</span>
         <h2 class="serviceTitle">Real Reviews,<br> Real Results</h2>
 
         <div class="reviewActions">
@@ -257,12 +259,12 @@
       </section>
       
 <!--Owners Story-->
-      <div class="ownerStory" style="display: none;">
+      <div class="ownerStory">
         <div class="ownerPhoto">
-          <img src="images/commercial/unnamed.webp" alt="Owner of Orantes Painting at work">
+          <img src="images/owner.PNG" alt="Owner of Orantes Painting at work" loading="lazy">
         </div>
         <div class="ownerText">
-          <h3>Meet the Team Behind the Brush</h3>
+          <h3>Meet the Man Behind the Brush</h3>
           <p>Orantes Painting was built on more than a decade of hands-on work — over 100 homes across the Las Vegas valley, and counting. As a family-run business, every job gets the same care as if it were our own home: clean prep, honest pricing, and a crew that shows up when they say they will.</p>
         </div>
       </div>
@@ -412,13 +414,13 @@
         <h3>Our Service Area</h3>
         <p>We serve all areas of Las Vegas</p>
         <div id="serviceMap" role="img" aria-label="Interactive map showing our Las Vegas service area, including Summerlin, North Las Vegas, and Henderson"></div>
-      </div> 
+      </div>                                                                        
       <ul class="areaList">
-      <li>Las Vegas</li>
-      <li>Summerlin</li>
-      <li>North Las Vegas</li>
-      <li>Henderson</li>
-  </ul>
+        <li><button type="button" data-area="lasvegas" aria-pressed="false">Las Vegas</button></li>
+        <li><button type="button" data-area="summerlin" aria-pressed="false">Summerlin</button></li>
+        <li><button type="button" data-area="northlv" aria-pressed="false">North Las Vegas</button></li>
+        <li><button type="button" data-area="henderson" aria-pressed="false">Henderson</button></li>
+      </ul>
     </div>
   </main>
 
@@ -426,7 +428,7 @@
   <footer>
     <div class="footerBox">
       <div class="footerLogo">
-        <img src="orantes_painting_transparent.png" alt="Orantes Painting LLC logo showing a paint spray gun beside a stylized house roof and chimney, with the text ORANTES PAINTING LLC below. The navy blue and gold design on a white background presents a professional painting business identity.">
+        <img src="orantes_painting_transparent.png" alt="Orantes Painting LLC">
       </div>
       
       <div class="contactInfo">
@@ -463,8 +465,11 @@
         
       <h3>Service Area</h3>
       <div class="serviceArea">
-        <ul>
-          <li><p>Las Vegas, NV</p></li>
+        <ul class="serviceAreaList">
+          <li><a href="index.html?area=lasvegas#map" data-area="lasvegas">Las Vegas</a></li>
+          <li><a href="index.html?area=summerlin#map" data-area="summerlin">Summerlin</a></li>
+          <li><a href="index.html?area=northlv#map" data-area="northlv">North Las Vegas</a></li>
+          <li><a href="index.html?area=henderson#map" data-area="henderson">Henderson</a></li>
         </ul>
       </div>
 
@@ -495,6 +500,6 @@
       </div>
     </section> 
   </footer>  
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>

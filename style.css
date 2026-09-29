@@ -1,7 +1,8 @@
 /* ==========================================
    DEFAULT STYLES: Mobile Phones (Up to 479px)
- 
-  ========================================== */
+   Mobile-first: base rules = mobile. Larger screens
+   layer on with min-width media queries at the bottom.
+   ========================================== */
 :root{
     --navy-dark: #0a1b3d;
     --navy-card: #122f53;
@@ -25,7 +26,7 @@ html{
     scrollbar-gutter: stable;
     scroll-padding-top: var(--header-offset);
 }
-body {
+body{
     position: relative;
 }
 body::before{
@@ -39,29 +40,75 @@ body::before{
         radial-gradient(380px circle at 15% 75%, rgba(219,170,92,0.37), transparent 70%),
         radial-gradient(420px circle at 88% 90%, rgba(16,39,68,0.30), transparent 70%);
 }
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+.skipLink{
+    position: absolute;
+    top: -60px;
+    left: 10px;
+    background: var(--navy-dark);
+    color: var(--cream);
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 1000;
+    transition: top 0.2s ease;
+}
+.skipLink:focus{
+    top: 10px;
+}
+a:focus-visible,
+button:focus-visible,
+.baHandle:focus-visible,
+.dot:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+    outline: 3px solid var(--gold-bright);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   HEADER / NAV
+   ========================================== */
 .header{
-   min-height: 12vh;
-   width: 100%;
-   background-color: var(--cream);
-   box-shadow: 0 2px 8px rgba(10, 27, 61, 0.12);
-   position: sticky;
-   top: 0;
-   z-index: 100;
+    min-height: 10vh;
+    width: 100%;
+    background-color: var(--cream);
+    box-shadow: 0 2px 8px rgba(10, 27, 61, 0.12);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 nav{
     display: flex;
-    padding: 2px 6%;
+    padding: 0 5%;
+    min-height: 82px;
     justify-content: space-between;
     align-items: center;
     position: relative;
 }
 nav img{
-    width: 170px;
-    height: 90px;
+    width: 150px;
+    height: 78px;
     object-fit: contain;
 }
 
-/* Mobile Menu Setup (Hidden by default, slides out) */
+/* Mobile menu (hidden by default, slides out) */
 .menu{
     position: absolute;
     background: #04011b;
@@ -92,7 +139,7 @@ nav img{
 }
 .menu ul li::after{
     content: '';
-    width:  0%;
+    width: 0%;
     height: 2px;
     background: #b3c0d2;
     display: block;
@@ -104,10 +151,11 @@ nav img{
     width: 100%;
 }
 
-/* Mobile Navigation Icons */
+/* Mobile navigation icons (real <button> elements) */
 nav .fa-xmark{
     background: none;
     border: none;
+    padding: 0;
     display: block;
     color: #d8dbde;
     font-size: 25px;
@@ -117,13 +165,17 @@ nav .fa-xmark{
 nav .fa-bars{
     background: none;
     border: none;
+    padding: 0;
     display: block;
     color: #040d1a;
-    font-size: 28px;
-    margin: 10px;
+    font-size: 26px;
+    margin: 8px 4px;
     cursor: pointer;
 }
-/*backdrop*/
+
+/* ==========================================
+   BACKDROP
+   ========================================== */
 .softBackdrop{
     position: relative;
     overflow: hidden;
@@ -141,102 +193,144 @@ nav .fa-bars{
 .softBackdrop::before{
     width: 380px;
     height: 380px;
-    background: radial-gradient(
-        circle, 
-        var(--gold) 40%,
-        transparent 70%
-    );
+    background: radial-gradient(circle, var(--gold) 40%, transparent 70%);
     top: -120px;
     left: -100px;
-    opacity: 0.35;
 }
 .softBackdrop::after{
     width: 320px;
     height: 320px;
-    background: radial-gradient(
-        circle,
-        var(--navy-card) 0%,
-        transparent 70%
-    );
+    background: radial-gradient(circle, var(--navy-card) 0%, transparent 70%);
     bottom: -100px;
     right: -80px;
     opacity: 0.15;
 }
-/* Hero Section */
-.textBox{
-    width: 85%;
-    padding: 20px;
-    margin: 0 auto;
-    margin-top: 20vh;
+
+/* ==========================================
+   HERO
+   ========================================== */
+.heroInner{
     position: relative;
-    padding-bottom: 90px;
-    box-sizing: border-box;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 }
 .heroBanner{
-    background-image: linear-gradient(180deg, rgba(93,163,214,0.29) 0%, rgba(93,163,214,0.039) 30%, rgba(40,22,8,0.74) 85%), url(images/exterior/IMG_0167.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 75vh;
+    position: relative;
+    background-image:
+        radial-gradient(ellipse 90% 45% at 50% 45%, rgba(10,27,61,0.55), transparent 75%),
+        linear-gradient(180deg, rgba(10,27,61,0.35) 0%, rgba(10,27,61,0.50) 45%, rgba(10,27,61,0.70) 100%),
+        url(images/exterior/IMG_0167.jpg);
+    background-size: 115% auto;
+    background-position: center 0%;
+    min-height: 53vh;
+    padding: 45px 18px;
     display: flex;
     justify-content: center;
-    align-items: center;   
-    
+    align-items: center;
 }
-
-.offerBlock{
+.heroHeadline{
+    font-size: clamp(30px, 7.8vw, 33px);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.16;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85), 0 2px 10px rgba(0,0,0,0.55);
+    margin-bottom: 18px;
+}
+.offerSubtext{
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin: 15px 0;
+    gap: 1px;
+    font-size: clamp(21px, 5.5vw, 24px);
+    color: #ffffff;
+}
+.offerSubtext .offerTop,
+.offerSubtext .offerBottom{
+    font-size: 1em;
     line-height: 1.2;
-}
-.offerTop{
-    font-size: 40px;
     font-weight: 600;
-    color: #f3f1ed;
-    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
-.offerWord{
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-size: clamp(25px, 9vw, 46px);
+.offerSubtext .offerWord{
+    font-size: clamp(30px, 7.8vw, 33px);
+    line-height: 1.15;
     font-weight: 700;
     font-style: italic;
-    color: var(--deep-gold);
-    min-height: 1.2em;
-    white-space: nowrap;
-    padding: 20px 0;
-    margin: 0;
-    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.75);
-}
-.offerBottom{
-    font-size: 40px;
-    font-weight: 600;
-    color: #f3f1ed;
-    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.75);
-}
-.cursor{
-    display: inline-block;
-    width: 3px;
-    height: 0.9em;
-    margin-left: 2px;
-    background: var(--deep-gold);
-    vertical-align: -0.1em;
-    animation: blink 0.8s step-end infinite;
+    color: #ffc857;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.70);
+    padding: 2px 0;
+    min-height: 2.1em; /* reserves room for a 2-line word so 1-line words don't shrink the box */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 @keyframes blink{
     0%, 49%{ opacity: 1; }
     50%, 100%{ opacity: 0; }
 }
+.cursor{ 
+    display:inline-block; 
+    width:2px; height:1em; 
+    background:currentColor; 
+    margin-left:3px; 
+    animation: blink 1s step-end infinite; 
+}
+/* Overlapping stats card */
+.heroStatsCard{
+    position: relative;
+    z-index: 2;
+    margin: -28px 16px 26px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    padding: 16px 14px;
+    display: flex;
+    flex-direction: column; /* CTA stacks under the numbers on mobile */
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+.heroStatsGroup{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 10px;
+}
+.heroStat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 65px;
+}
+.heroStatNum{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--navy-dark);
+    line-height: 1.2;
+}
+.heroStatNum .star{
+    line-height: 0;
+}
+.heroStatLabel{
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+/* Quote button */
 .quoteButton{
     position: absolute;
     bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     display: inline-block;
-    background: linear-gradient(135deg, #d99b1f, #f0b23c);
+    background: linear-gradient(135deg, #d99b1f, var(--deep-gold));
     color: var(--navy-dark);
     padding: 8px 16px;
     font-size: 26px;
@@ -249,13 +343,26 @@ nav .fa-bars{
     background: var(--gold-bright);
     color: var(--navy-dark);
 }
+.heroStatsCard .quoteButton{
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 240px;
+    text-align: center;
+    font-size: 17px;
+    padding: 11px 18px;
+    border-radius: 7px;
+    white-space: nowrap;
+}
 
-/* Trust Badges */
+/* ==========================================
+   TRUST BADGES
+   ========================================== */
 .trustBadges{
     display: flex;
     flex-direction: column;
-    gap: 25px;
-    padding: 25px 20px;
+    gap: 10px;
+    padding: 23px 14px 25px;
     background-color: var(--navy-dark);
     color: var(--gold);
 }
@@ -267,10 +374,10 @@ nav .fa-bars{
     width: 100%;
     flex-wrap: wrap;
 }
-.badgeTop, .badgeBottom{
-    gap: 25px;
+.badgeTop,
+.badgeBottom{
+    gap: 16px 22px;
 }
-
 .badge{
     display: flex;
     align-items: center;
@@ -278,26 +385,27 @@ nav .fa-bars{
     white-space: nowrap;
 }
 .badge svg{
-    color: var(--gold);
-    font-size: 26px;
+    width: 28px;
+    height: 28px;
+}
+.badge svg,
+.badge p{
+    color: var(--gold-bright);
 }
 .badge p{
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 600;
     margin: 0;
-    color: inherit;
-}
-.badge svg, .badge p{ 
-    color: #e0a028; 
 }
 .licenseNum{
-    font-size: 19px;
     font-weight: 600;
     color: var(--gold);
     margin: 2px 0 0 0;
 }
 
-/* Credibility Section */
+/* ==========================================
+   CREDIBILITY
+   ========================================== */
 .credibility{
     max-width: 1000px;
     margin: 0 auto;
@@ -308,34 +416,9 @@ nav .fa-bars{
     justify-content: center;
 }
 
-.statsStrip{
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin: 30px 0 50px;
-}
-.statItem{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.statNumber{
-    font-size: 40px;
-    font-weight: 700;
-    color: var(--navy-dark);
-    font-family: 'Fraunces', serif; /* omit if you're not using this font — falls back to default */
-}
-.statLabel{
-    font-size: 14px;
-    font-weight: 600;
-    color: #555;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 4px;
-}
-
-/* Testimonials */
+/* ==========================================
+   TESTIMONIALS
+   ========================================== */
 .testimonials{
     max-width: 1100px;
     margin: 60px auto;
@@ -383,7 +466,7 @@ nav .fa-bars{
     font-size: 14px;
     text-decoration: none;
     margin: 0;
-    transition: background 0.15s ease, color 0.15s ease;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 .leaveReviewButton:hover{
     background: var(--navy-dark);
@@ -391,19 +474,15 @@ nav .fa-bars{
     transform: translateY(-2px);
 }
 
-/* =========================
-   SLIDING REVIEWS
-========================= */
-
-.marqueeWrapper {
+/* Sliding reviews */
+.marqueeWrapper{
     overflow: hidden;
     width: 100%;
     position: relative;
 }
-
-/* Fading edges without using mask-image */
+/* Fading edges without mask-image */
 .marqueeWrapper::before,
-.marqueeWrapper::after {
+.marqueeWrapper::after{
     content: "";
     position: absolute;
     top: 0;
@@ -412,19 +491,15 @@ nav .fa-bars{
     z-index: 2;
     pointer-events: none;
 }
-
-.marqueeWrapper::before {
+.marqueeWrapper::before{
     left: 0;
     background: linear-gradient(to right, #ffffff, transparent);
 }
-
-.marqueeWrapper::after {
+.marqueeWrapper::after{
     right: 0;
     background: linear-gradient(to left, #ffffff, transparent);
 }
-
-
-.marqueeTrack {
+.marqueeTrack{
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -435,22 +510,15 @@ nav .fa-bars{
     position: relative;
     z-index: 1;
 }
-
-
-/* Individual duplicated sets */
-.marqueeSet {
+.marqueeSet{
     display: flex;
     flex-direction: row;
     align-items: stretch;
     gap: 20px;
     flex: 0 0 auto;
-    flex-shrink: 0;
     flex-wrap: nowrap;
 }
-
-
-/* Review cards */
-.reviewCard {
+.marqueeTrack .reviewCard{
     background: #ffffff;
     border: 1px solid #e5e0d5;
     border-radius: 12px;
@@ -460,68 +528,45 @@ nav .fa-bars{
     flex: 0 0 300px;
     width: 300px;
 }
-
-
-/* Stars */
-.reviewStars {
+.reviewStars{
     color: #96650b;
     font-size: 16px;
     margin-bottom: 8px;
 }
-
-
-/* Review text */
-.reviewText {
-    font-size: 14px;
+.reviewText{
+    font-size: 15px;
     line-height: 1.6;
     color: #333;
     margin-bottom: 12px;
 }
-
-
-/* Author */
-.reviewAuthor {
+.reviewAuthor{
     font-size: 13px;
     font-weight: 600;
     color: var(--navy-dark);
 }
-
-
 /* Pause when hovering with a mouse */
-@media (hover: hover) {
-    .marqueeTrack:hover {
+@media (hover: hover){
+    .marqueeTrack:hover{
         animation-play-state: paused;
     }
 }
-
-
 /* Mobile tap-to-pause */
-.marqueeTrack.isPaused {
+.marqueeTrack.isPaused{
     animation-play-state: paused;
 }
-
-
-/* Infinite scrolling animation */
-@keyframes scrollLeft {
-    from {
-        transform: translate3d(0, 0, 0);
-    }
-
-    to {
-        transform: translate3d(calc(-1 * var(--set-width)), 0, 0);
-    }
+@keyframes scrollLeft{
+    from{ transform: translate3d(0, 0, 0); }
+    to{ transform: translate3d(calc(-1 * var(--set-width)), 0, 0); }
 }
-
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .marqueeTrack {
+@media (prefers-reduced-motion: reduce){
+    .marqueeTrack{
         animation: none;
     }
 }
 
-
-/*owners story*/
+/* ==========================================
+   OWNER'S STORY
+   ========================================== */
 .ownerStory{
     display: flex;
     flex-direction: column;
@@ -532,11 +577,12 @@ nav .fa-bars{
     margin-top: 80px;
 }
 .ownerPhoto{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    width: 330px;
+    aspect-ratio: 4/3;
+    height: auto;
+    border-radius: 16px;
     overflow: hidden;
-    border: 3px solid var(--gold);
+    border: 2px solid var(--navy-card);
     flex-shrink: 0;
 }
 .ownerPhoto img{
@@ -556,14 +602,16 @@ nav .fa-bars{
     font-size: 22px;
 }
 
-/* Services Section - Mobile Carousel View */
+/* ==========================================
+   SERVICES (mobile carousel view)
+   ========================================== */
 .serviceSection{
     max-width: 1000px;
     margin: 15px auto 40px;
     padding: 0 20px;
 }
 .serviceTitle{
-    font-size: clamp(30px, 6vw, 38px);
+    font-size: clamp(26px, 6.5vw, 28px);
     font-weight: 900;
     color: var(--navy-dark);
     margin-bottom: 30px;
@@ -581,18 +629,16 @@ nav .fa-bars{
     width: 75px;
     height: 3px;
     background: var(--gold);
-
 }
 .services{
     display: flex;
     gap: 28px;
     overflow-x: auto;
-    touch-action: pan-x pan-y;
     overflow-y: hidden;
+    touch-action: pan-x pan-y;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    padding: 0px 40px;
-    box-sizing: border-box;
+    padding: 0 40px;
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -606,9 +652,7 @@ nav .fa-bars{
     scroll-snap-stop: always;
     display: block;
     padding: 10px 0;
-    box-sizing: border-box;
 }
-
 .cardImage{
     width: 100%;
     z-index: 1;
@@ -620,13 +664,12 @@ nav .fa-bars{
     height: 320px;
     display: block;
     margin: 0 auto;
-    background: linear-gradient(to top, rgba(0,0,0, 0.7) 0%, rgba(0, 0, 0, 0) 80%);
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%);
 }
 .service{
     background: #ffffff;
     border-radius: 8px;
     border: 0.25px solid #2e3135;
-    box-sizing: border-box;
     position: relative;
     z-index: 5;
     padding: 8px;
@@ -641,12 +684,11 @@ nav .fa-bars{
     color: #333;
     text-align: center;
 }
-hr {
+hr{
     border: none;
-    height: .5px;
+    height: 0.5px;
     background-color: #333;
 }
-
 .bookingButton{
     display: inline-block;
     background: var(--navy-dark);
@@ -660,28 +702,25 @@ hr {
     cursor: pointer;
     transition: background 0.2s ease;
     width: 90%;
-    box-sizing: border-box;
 }
 .bookingButton:hover{
     background: var(--gold);
     color: var(--navy-dark);
 }
 
-/* Dots and Arrow Navigation (Visible on Mobile) */
+/* Dots and arrow navigation (visible on mobile) */
 .dotContainer{
     display: flex;
     justify-content: center;
     gap: 8px;
-
 }
-.dot {
+.dot{
     width: 20px;
     height: 20px;
     background-color: #12356cdf;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
-    margin-right: 8px;
     position: relative;
 }
 .dot::before{
@@ -724,9 +763,11 @@ hr {
     transform: scale(1.08);
 }
 
-/* Gallery Preview */
+/* ==========================================
+   GALLERY PREVIEW
+   ========================================== */
 .serviceEyebrow{
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 600;
 }
 .sectionLead{
@@ -736,14 +777,12 @@ hr {
     margin: 6px 0;
     font-style: italic;
 }
-
 .galleryPreview{
     max-width: 500px;
     margin: 40px auto;
     padding: 0 20px;
     text-align: center;
 }
-
 .galleryGrid{
     position: relative;
     overflow: hidden;
@@ -752,14 +791,11 @@ hr {
     max-width: 100%;
     margin: 0 auto;
 }
-
 .galleryTrack{
-    /* no longer a flex column — items are stacked/positioned absolutely */
-    position: relative;
+    position: relative; /* items are stacked absolutely */
     height: 100%;
     width: 100%;
 }
-
 .galleryItem{
     position: absolute;
     top: 0;
@@ -767,13 +803,11 @@ hr {
     width: 100%;
     height: 100%;
     padding: 20px;
-    box-sizing: border-box;
     text-align: center;
     opacity: 0;
     transition: opacity 0.6s ease;
     animation: fadeSlide 20s infinite;
 }
-
 .galleryItem img{
     width: 100%;
     height: 100%;
@@ -781,11 +815,9 @@ hr {
     display: block;
     transition: transform 0.25s ease;
 }
-
 .galleryItem:hover img{
     transform: scale(1.06);
 }
-
 /* stagger each item's animation start so they take turns */
 .galleryItem:nth-child(1){ animation-delay: 0s; }
 .galleryItem:nth-child(2){ animation-delay: 5s; }
@@ -794,10 +826,10 @@ hr {
 
 @keyframes fadeSlide{
     0%   { opacity: 0; }
-    4%   { opacity: 1; }   /* fade in */
-    20%  { opacity: 1; }   /* stay visible */
-    24%  { opacity: 0; }   /* fade out */
-    100% { opacity: 0; }   /* stay hidden until its turn again */
+    4%   { opacity: 1; }  /* fade in */
+    20%  { opacity: 1; }  /* stay visible */
+    24%  { opacity: 0; }  /* fade out */
+    100% { opacity: 0; }  /* stay hidden until its turn again */
 }
 .viewGalleryButton{
     display: inline-block;
@@ -815,7 +847,9 @@ hr {
     color: var(--navy-dark);
 }
 
-/* Process Steps */
+/* ==========================================
+   PROCESS STEPS
+   ========================================== */
 .processSteps{
     max-width: 1000px;
     margin: 60px auto;
@@ -861,15 +895,18 @@ hr {
     max-width: 260px;
 }
 
-/* Action Buttons */
-.buttonContainer {
+/* ==========================================
+   ACTION BUTTONS
+   ========================================== */
+.buttonContainer{
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
     padding: 30px 10px;
 }
-.contactButton, .callButton{
+.contactButton,
+.callButton{
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -899,7 +936,9 @@ hr {
     transform: translateY(-2px);
 }
 
-/*Contact Form*/
+/* ==========================================
+   CONTACT FORM
+   ========================================== */
 .form{
     max-width: 520px;
     margin: 0 auto;
@@ -922,7 +961,7 @@ hr {
     margin-bottom: 12px;
 }
 .field{
-    margin: 10px 10px 10px 0px;
+    margin: 10px 10px 10px 0;
 }
 .row{
     display: grid;
@@ -946,7 +985,6 @@ label{
     margin-bottom: 4px;
     color: var(--cream);
 }
-
 input::placeholder,
 textarea::placeholder{
     color: rgba(243, 241, 237, 0.55);
@@ -971,20 +1009,20 @@ textarea:focus{
     border-color: var(--gold-bright);
     box-shadow: 0 0 0 3px rgba(219,170,92,0.25);
 }
-/*preferred time*/
+/* Preferred time */
 .hint{
     display: flex;
     align-items: center;
     gap: 8px;
     color: var(--cream);
     font-size: 1.2rem;
-    margin: 18px 0 18px;
+    margin: 18px 0;
 }
 .hint i{
     flex-shrink: 0;
     color: var(--gold);
 }
-/*send request*/
+/* Send request */
 button.submit{
     width: 100%;
     background: linear-gradient(135deg, var(--gold), var(--gold-bright));
@@ -995,17 +1033,17 @@ button.submit{
     padding: 14px;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform .15s ease, box-shadow .15s ease;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 button.submit:hover{
     transform: translateY(-1px);
     box-shadow: 0 8px 15px rgba(219,170,92,0.35);
 }
 button.submit:active{
-    transform:translateY(0);
+    transform: translateY(0);
 }
 button.submit:disabled{
-    opacity: .7;
+    opacity: 0.7;
     cursor: default;
     transform: none;
 }
@@ -1023,11 +1061,12 @@ button.submit:disabled{
     color: #ff6b5b;
     font-weight: 600;
 }
-/*contact grid*/
+
+/* Contact grid */
 .grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:14px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
 }
 .contactCard{
     background: var(--navy-card);
@@ -1051,13 +1090,13 @@ button.submit:disabled{
     flex-shrink: 0;
     border-radius: 10px;
     background: rgba(219,170,92,0.18);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
 }
 .contactCard h3{
-    margin:5px 0 4px;
+    margin: 5px 0 4px;
     font-size: 1.5rem;
     color: var(--cream);
 }
@@ -1071,7 +1110,8 @@ button.submit:disabled{
     margin: 0 auto;
     padding: 0 20px;
 }
-/*map*/
+
+/* Map */
 .areaCard{
     background: var(--navy-dark);
     border: 1px solid var(--gold);
@@ -1091,18 +1131,17 @@ button.submit:disabled{
     font-size: 1.3rem;
 }
 #serviceMap{
-    height:280px;
-    width:100%;
-    border-radius:10px;
-    border:1px solid var(--gold);
+    height: 280px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--gold);
     position: relative;
     z-index: 0;
 }
 #serviceMap .leaflet-marker-icon,
 #serviceMap .leaflet-popup{
     filter: invert(1) hue-rotate(180deg);
-  }
-
+}
 .areaList{
     list-style: none;
     display: grid;
@@ -1113,19 +1152,33 @@ button.submit:disabled{
     text-align: center;
 }
 .areaList li{
-    background: #122f53;
+    background: var(--navy-card);
     border: 1px solid var(--gold);
     color: var(--cream);
-    padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.99rem;
+    transition: background 0.15s ease, color 0.15s ease;
 }
-.quoteMapRow,
-.areaList{ 
-    flex-basis: 1 1 100%; 
+.areaList li:hover,
+.areaList li:has(button[aria-pressed="true"]){
+    background: var(--gold);
+    color: var(--navy-dark);
+}
+.areaList li button{
+    display: block;
+    width: 100%;
+    padding: 6px 14px;
+    background: none;
+    border: none;
+    border-radius: inherit;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
 }
 
-/*==TEASER==*/
+/* ==========================================
+   QUOTE TEASER
+   ========================================== */
 .quoteTeaser{
     background: var(--navy-dark);
     border-top: 1px solid var(--gold);
@@ -1178,15 +1231,17 @@ button.submit:disabled{
     background: var(--gold);
     color: #1b1712;
 }
-/*footer*/
-/*footer card with logo and contact information*/
+
+/* ==========================================
+   FOOTER
+   ========================================== */
 footer{
     background-color: var(--navy-dark);
     color: white;
     margin-top: 90px;
     padding: 1px 20px 40px 20px;
-    
 }
+/* Footer card with logo and contact information */
 .footerBox{
     color: white;
     background-color: var(--navy-card);
@@ -1198,7 +1253,6 @@ footer{
     flex-direction: column;
     align-items: center;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.432);
-    
 }
 .footerLogo{
     max-width: 210px;
@@ -1213,38 +1267,39 @@ footer{
     filter: drop-shadow(0 4px 5px rgba(210, 213, 229, 0.588));
 }
 .contactInfo{
-width: 100%;
+    width: 100%;
 }
-.contactInfo > div, 
+.contactInfo > div,
 .oneLine a{
-display: flex;
-align-items: center;
-gap: 15px;
-margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
 }
 .contactInfo i{
-background-color: rgba(1, 5, 20, 0.2);
-width: 36px;
-height: 36px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #ffffff;
-font-size: 14px;
+    background-color: rgba(1, 5, 20, 0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 14px;
 }
 .contactInfo a{
-color: #ffffff;
-text-decoration: none;
-font-weight: 550;
-font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 550;
+    font-size: 18px;
 }
 .contactInfo span{
-color: #ffffff;
-font-weight: 550;
-font-size: 18px;
+    color: #ffffff;
+    font-weight: 550;
+    font-size: 16px;
 }
-/*footer bottom section*/
+
+/* Footer bottom section */
 .bottomFooter{
     color: white;
 }
@@ -1277,15 +1332,25 @@ font-size: 18px;
     font-size: 20px;
     margin: 0;
 }
-/*quick links*/
+.serviceAreaList li a{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+.serviceAreaList li a:hover,
+.serviceAreaList li a[aria-current="true"]{
+    color: var(--gold-bright);
+}
+
+/* Quick links */
 .quickLinks a{
     text-decoration: none;
     color: white;
 }
 .quickLinks a:hover p{
-    color: #f5a623;
+    color: var(--gold-bright);
 }
-/*social icon*/
+/* Social icons */
 .socialIcon{
     display: flex;
     flex-wrap: nowrap;
@@ -1304,17 +1369,17 @@ font-size: 18px;
     text-decoration: none;
     transition: background 0.2s ease;
 }
-
 .socialIcon i{
     font-size: 25px;
-    color: white;   
+    color: white;
 }
 .socialIcon a:hover{
     background: #e7e4e0c3;
 }
 
-/*PRIVACY-POLICY.HTML*/
-/* Privacy Policy Page */
+/* ==========================================
+   PRIVACY-POLICY.HTML
+   ========================================== */
 .policyPage{
     max-width: 800px;
     margin: 60px auto;
@@ -1335,7 +1400,8 @@ font-size: 18px;
     font-size: 22px;
     margin: 30px 0 10px;
 }
-.policyContent p, .policyContent li{
+.policyContent p,
+.policyContent li{
     color: #333;
     font-size: 15px;
     line-height: 1.7;
@@ -1346,8 +1412,10 @@ font-size: 18px;
 .policyContent a{
     color: var(--gold-bright);
 }
-/*BOOKING.HTML*/
-/* Booking Page Intro */
+
+/* ==========================================
+   BOOKING.HTML
+   ========================================== */
 .bookingIntro{
     max-width: 700px;
     margin: 60px auto 20px;
@@ -1421,14 +1489,15 @@ input[type="file"]::file-selector-button{
 .photoUploadButton:hover{
     background: var(--gold-bright);
 }
-
 .photoTextLink{
     color: var(--gold-bright);
     font-weight: 600;
     text-decoration: underline;
 }
-/*sERVICES.HTML*/
-/* Services Page */
+
+/* ==========================================
+   SERVICES.HTML
+   ========================================== */
 .servicesIntro{
     max-width: 700px;
     margin: 60px auto 20px;
@@ -1452,12 +1521,10 @@ input[type="file"]::file-selector-button{
     max-width: 600px;
 }
 
-/* Before/After Slider */
+/* Before/After slider */
 .baSlider{
-    margin-top: 24px;
+    margin: 24px auto 0;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 .baSliderInner{
     position: relative;
@@ -1469,9 +1536,11 @@ input[type="file"]::file-selector-button{
     cursor: ew-resize;
     user-select: none;
 }
-.baAfter, .baBefore{
+.baAfter,
+.baBefore{
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1479,7 +1548,8 @@ input[type="file"]::file-selector-button{
 }
 .baBeforeWrap{
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 50%;
     overflow: hidden;
@@ -1525,7 +1595,7 @@ input[type="file"]::file-selector-button{
     letter-spacing: 1px;
 }
 
-/* Process Section */
+/* Process section */
 .processSection{
     margin-top: 40px;
 }
@@ -1546,12 +1616,6 @@ input[type="file"]::file-selector-button{
     border-radius: 8px;
     display: block;
 }
-.processCaption{
-    font-size: 13px;
-    color: #666;
-    margin-top: 6px;
-    text-align: center;
-}
 .processPhoto video{
     width: 100%;
     aspect-ratio: 4/3;
@@ -1560,12 +1624,19 @@ input[type="file"]::file-selector-button{
     display: block;
     background: #000;
 }
+.processCaption{
+    font-size: 13px;
+    color: #666;
+    margin-top: 6px;
+    text-align: center;
+}
 .processPhotoWide{
     grid-column: span 2;
 }
 
-/*GALLERY.HTML*/
-/* Gallery Page */
+/* ==========================================
+   GALLERY.HTML
+   ========================================== */
 .galleryHeader{
     max-width: 700px;
     margin: 60px auto 20px;
@@ -1659,8 +1730,9 @@ input[type="file"]::file-selector-button{
     cursor: pointer;
 }
 
-/*REVIEW.HTML*/
-/* Reviews Page */
+/* ==========================================
+   REVIEWS.HTML
+   ========================================== */
 .reviewsPageHeader{
     max-width: 700px;
     margin: 60px auto 20px;
@@ -1677,70 +1749,21 @@ input[type="file"]::file-selector-button{
 }
 
 /* ==========================================
-   ACCESSIBILITY ADDITIONS
-   Paste this block into style.css (top of the file, near the * reset, is a good spot)
+   BREAKPOINT 1: Larger Mobile / Small Tablets (480px and up)
+   Restores the values that were tuned for mobile only.
    ========================================== */
-
-/* Visually hide content but keep it available to screen readers */
-.sr-only{
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
-/* Skip link — hidden until keyboard-focused, then jumps above the header */
-.skipLink{
-    position: absolute;
-    top: -60px;
-    left: 10px;
-    background: var(--navy-dark);
-    color: var(--cream);
-    padding: 10px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    z-index: 1000;
-    transition: top 0.2s ease;
-}
-.skipLink:focus{
-    top: 10px;
-}
-
-/* Reset default browser button styling on the icon-buttons we converted
-   from <i onclick> to real <button> elements, so they keep their original look */
-nav .fa-xmark,
-nav .fa-bars{
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-}
-
-/* Visible focus outline for keyboard users on interactive elements
-   that don't already show one clearly against the site's dark/gold palette */
-a:focus-visible,
-button:focus-visible,
-.baHandle:focus-visible,
-.dot:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible{
-    outline: 3px solid var(--gold-bright);
-    outline-offset: 2px;
-}
-
-/* ==========================================
-   BREAKPOINT 1: Larger Mobile/Small Tablets (480px and up)
-   ========================================== */
-@media(min-width: 480px){
-    /* Note: If you want text sizes to shrink slightly on screens larger than 480px, keep these values. 
-       Otherwise, omit this block to maintain the default mobile sizes. */
+@media (min-width: 480px){
+    /* Header / nav */
+    .header{
+        min-height: 12vh;
+    }
+    nav{
+        padding: 2px 6%;
+        min-height: 0;
+    }
+    nav img{
+        height: 90px;
+    }
     .menu ul li a{
         font-size: 22px;
     }
@@ -1748,85 +1771,147 @@ textarea:focus-visible{
         font-size: 22px;
     }
     nav .fa-bars{
-        font-size: 25px;  
-    }
-    nav img{
-        width: 150px;
-    }
- 
-/*Hero Banner*/
-    .heroBanner{
-        height: 100svh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
+        font-size: 25px;
+        margin: 10px;
     }
 
-    .quoteButton{
-        font-size: 20px;
-        bottom: 20px;
+    /* Hero */
+    .heroBanner{
+        min-height: 55vh;
+        padding: 60px 20px;
+        background-image:
+            linear-gradient(180deg, rgba(93,163,214,0.29) 0%, rgba(93,163,214,0.039) 30%, rgba(40,22,8,0.74) 85%),
+            url(images/exterior/IMG_0167.jpg);
+        background-size: cover;
+        background-position: center center;
     }
-    .badgeBottom{
-        gap: 85px;
-    }  
+    .heroInner{
+        width: 85%;
+        max-width: none;
+    }
+    .heroHeadline{
+        font-size: clamp(30px, 7.8vw, 33px);
+        line-height: 1.25;
+        margin-bottom: 14px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    }
+    .offerSubtext{
+        gap: 4px;
+        font-size: clamp(24px, 6.5vw, 30px);
+    }
+    .offerSubtext .offerTop,
+    .offerSubtext .offerBottom{
+        line-height: normal;
+    }
+    .offerSubtext .offerWord{
+        font-size: clamp(31px, 7.8vw, 35px);
+        line-height: normal;
+        min-height: 2.6em;
+        padding: 4px 0;
+    }
+
+    /* Stats card goes back to a single row */
+    .heroStatsCard{
+        flex-direction: row;
+        margin: -40px 20px 30px;
+        padding: 18px 20px;
+        border-radius: 14px;
+    }
+    .heroStatsGroup{
+        width: auto;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    .heroStat{
+        min-width: 0;
+    }
+    .heroStatNum{
+        font-size: 20px;
+    }
+    .heroStatLabel{
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+    .heroStatsCard .quoteButton{
+        width: auto;
+        max-width: none;
+        text-align: left;
+        padding: 10px 18px;
+        border-radius: 5px;
+    }
+
+    /* Trust badges */
+    .trustBadges{
+        gap: 25px;
+        padding: 25px 20px;
+    }
     .badgeTop{
         gap: 60px;
     }
+    .badgeBottom{
+        gap: 85px;
+    }
+    .badge{
+        gap: 10px;
+    }
+    .badge svg{
+        width: auto;
+        height: 1em;
+        font-size: 26px;
+    }
+    .badge p{
+        font-size: 17px;
+    }
+    .licenseNum{
+        font-size: 19px;
+    }
 
-
+    /* Footer logo */
     .footerLogo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50vw;
-    padding: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vw;
+        padding: 20px;
     }
 
-    .marqueeTrack{
-    animation-duration: 65s;
-    }
+    /* Reviews */
     .reviewActions{
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     }
     .googleBadge{
         padding: 9px 24px;
     }
-    /*services*/
+
+    /* Services */
     .services{
         overflow-x: hidden;
         padding: 0;
         gap: 0;
     }
 
-/*REVIEW.HTML*/
+    /* REVIEWS.HTML */
     .fullReviewGrid{
         grid-template-columns: 1fr 1fr;
     }
 }
 
-
 /* ==========================================
    BREAKPOINT 2: Tablets / Small Laptops (700px and up)
    ========================================== */
-@media(min-width: 700px){
-    /* Reverse layout adjustments back to horizontal grid rows */
-    nav img{
-        width: 150px;
+@media (min-width: 700px){
+    /* Hero */
+    .heroBanner{
+        min-height: 65vh;
     }
-    .quoteButton{
-        font-size: 21px;
-        margin-bottom: 15px;
+    .heroStatsCard{
+        max-width: 600px;
+        margin: -40px auto 40px;
     }
 
-    .heroBanner{
-        height: 85vh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        background-image: linear-gradient(180deg, rgba(93,163,214,0.20) 0%, rgba(93,163,214,0.039) 30%, rgba(40,22,8,0.74) 90%), url(images/exterior/IMG_0167.jpg);
-    }
+    /* Desktop nav: menu becomes an inline row */
     .menu{
         position: static;
         background: transparent;
@@ -1847,13 +1932,12 @@ textarea:focus-visible{
     .menu ul li::after{
         background: #08121f;
     }
-    
-    nav .fa-xmark, nav .fa-bars{
+    nav .fa-xmark,
+    nav .fa-bars{
         display: none;
     }
-    .textBox{
-    margin: 0 auto;
-    }
+
+    /* Trust badges */
     .trustBadges{
         flex-direction: row;
         justify-content: center;
@@ -1863,12 +1947,8 @@ textarea:focus-visible{
     .badgeRow{
         display: contents;
     }
-    .googleBadge{
-        padding: 9px 24px;
-    }
 
-
-/*Owners Story*/
+    /* Owner's story */
     .ownerStory{
         flex-direction: row;
         align-items: center;
@@ -1888,14 +1968,13 @@ textarea:focus-visible{
         line-height: 1.7;
     }
 
-
-/*services*/
+    /* Services: carousel becomes a grid */
     .services{
-       display: grid;
-       grid-template-columns: repeat(2, 1fr);
-       gap: 24px;
-       overflow: visible;
-       padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        overflow: visible;
+        padding: 0;
     }
     .cardContainer{
         flex: none;
@@ -1905,22 +1984,20 @@ textarea:focus-visible{
         display: none;
     }
     .serviceDetail{
-    text-align: center;
+        text-align: center;
     }
     .serviceDetailHeader p{
         margin-left: auto;
         margin-right: auto;
     }
 
-/*Process Steps*/
+    /* Process steps */
     .stepsRow{
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
     }
-
-
-/* connecting line between the circles */
+    /* connecting line between the circles */
     .stepsRow::before{
         content: "";
         position: absolute;
@@ -1935,7 +2012,8 @@ textarea:focus-visible{
         flex: 1;
         max-width: 260px;
     }
-/*teaser*/
+
+    /* Teaser + map */
     .quoteMapRow{
         display: flex;
         flex-wrap: wrap;
@@ -1957,26 +2035,14 @@ textarea:focus-visible{
         justify-content: center;
     }
 
-/*form*/
+    /* Forms */
     .row{
         grid-template-columns: 1fr 1fr;
     }
     .grid{
-    grid-template-columns:1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
-    
-    
-/* Gallery preview: a bit more breathing room now that it's not cramped */
-    .galleryPreview{
-        margin: 60px auto;
-    }
-    .galleryGrid{
-        width: 480px;
-        max-width: 480px;
-        height: 520px;
-    }
-
-/* Contact form + grid side-by-side instead of stacked */
+    /* Contact form + grid side-by-side instead of stacked */
     .form{
         max-width: 1100px;
         flex-direction: row;
@@ -1987,12 +2053,12 @@ textarea:focus-visible{
         flex: 1;
     }
     .contactColumn{
-    flex: 1.2;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+        flex: 1.2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
     }
-    .contactCard {
+    .contactCard{
         padding: 10px;
         min-height: 90px;
         align-items: center;
@@ -2002,16 +2068,26 @@ textarea:focus-visible{
         flex-direction: column;
         gap: 2px;
     }
-/*google reviews*/
 
-    .marqueeTrack{
-    animation-duration: 90s;
+    /* Gallery preview: more breathing room */
+    .galleryPreview{
+        max-width: 650px;
+        margin: 60px auto;
     }
-/*SERVICES.HTML*/
+    .galleryGrid{
+        width: 480px;
+        max-width: 480px;
+        height: 520px;
+    }
+
+    /* Google reviews */
+    .marqueeTrack{
+        animation-duration: 90s;
+    }
+
+    /* SERVICES.HTML */
     .processGrid{
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
     }
     .processPhotoWide{
         grid-column: auto;
@@ -2021,18 +2097,13 @@ textarea:focus-visible{
     .processPhoto{
         flex: 1 1 200px;
     }
-    
 
-/*GALLERY.HTML*/
+    /* GALLERY.HTML */
     .fullGalleryGrid{
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .galleryPreview{
-        max-width: 650px;
-    }
-
-/*Footer*/
+    /* Footer */
     .footerBox{
         max-width: 750px;
         margin: -80px auto 40px auto;
@@ -2043,7 +2114,6 @@ textarea:focus-visible{
         padding: 20px;
         gap: 10px;
     }
-
     .footerBox .contactInfo a,
     .footerBox .contactInfo span{
         font-size: 17px;
@@ -2054,17 +2124,13 @@ textarea:focus-visible{
         font-size: 12px;
         margin-bottom: 0;
     }
-
     .footerBox .contactInfo > div,
     .footerBox .oneLine a{
         justify-content: center;
     }
-
     .contactInfo{
         width: auto;
     }
-
-
     .footerBox .contactInfo{
         display: flex;
         flex-wrap: wrap;
@@ -2073,12 +2139,10 @@ textarea:focus-visible{
         gap: 50px;
         width: auto;
     }
-
     .footerLogo{
         max-width: 240px;
         margin-bottom: 15px;
     }
-    /*bottom*/
     .bottomFooter{
         max-width: 1100px;
         margin: 0 auto;
@@ -2090,64 +2154,46 @@ textarea:focus-visible{
         row-gap: 10px;
         align-items: start;
     }
-
     .bottomFooter h3{
         font-size: 20px;
     }
-
     .bottomFooter ul li,
     .serviceArea p{
         font-size: 17px;
     }
-
 }
 
-
-
-@media(min-width: 900px){
+/* ==========================================
+   BREAKPOINT 3: Laptops (900px and up)
+   ========================================== */
+@media (min-width: 900px){
     .fullReviewGrid{
         grid-template-columns: repeat(3, 1fr);
     }
-
-    .quoteMapRow{
-        display: flex;
-        gap: 40px;
-        align-items: stretch;
-    }
-
     .quoteMapRow .quoteTeaser,
     .quoteMapRow .areaCard{
         flex: 1;
     }
-
 }
 
-
-@media(min-width: 1200px) {
-    nav img{
-        width: 150px;
-}
+/* ==========================================
+   BREAKPOINT 4: Desktops (1200px and up)
+   ========================================== */
+@media (min-width: 1200px){
     .heroBanner{
-        height: 80vh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-}
-    /* Add specific large-screen optimizations here if needed */
-/*GALLERY.HTML*/
+        min-height: 70vh;
+    }
+    /* GALLERY.HTML */
     .fullGalleryGrid{
-            grid-template-columns: repeat(4, 1fr);
-        }
+        grid-template-columns: repeat(4, 1fr);
+    }
     .galleryGrid{
         width: 560px;
         max-width: 560px;
         height: 600px;
     }
-
-/*Services*/
+    /* Services */
     .services{
-        grid-template-columns: repeat(4,1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
-
-   
 }

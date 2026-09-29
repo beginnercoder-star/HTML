@@ -185,15 +185,22 @@ if (carouselTrack){
 }
 
 // Map — only runs on pages that actually have #serviceMap
+// Map — only runs on pages that actually have #serviceMap
 const mapContainer = document.getElementById('serviceMap');
 
 if (mapContainer){
   const areas = [
-    { name: 'Las Vegas',        coords: [36.1699, -115.1398] },
-    { name: 'Summerlin',        coords: [36.1716, -115.3286] },
-    { name: 'North Las Vegas',  coords: [36.1989, -115.1175] },
-    { name: 'Henderson',        coords: [36.0395, -114.9817] }
+    { key: 'lasvegas',  name: 'Las Vegas',       coords: [36.1699, -115.1398], query: 'Las Vegas, NV' },
+    { key: 'summerlin', name: 'Summerlin',       coords: [36.1716, -115.3286], query: 'Summerlin, Las Vegas, NV' },
+    { key: 'northlv',   name: 'North Las Vegas', coords: [36.1989, -115.1175], query: 'North Las Vegas, NV' },
+    { key: 'henderson', name: 'Henderson',       coords: [36.0395, -114.9817], query: 'Henderson, NV' }
   ];
+
+  const baseStyle = { weight: 0, opacity: 0, fillOpacity: 0 };
+  const highlightStyle = { color: '#dbaa5c', weight: 3, opacity: 1, fillColor: '#dbaa5c', fillOpacity: 0.4 };
+  const boundaryLayers = {};
+  let selectedKey = null;
+
   const map = L.map('serviceMap', { scrollWheelZoom: false });
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -201,41 +208,30 @@ if (mapContainer){
     maxZoom: 19
   }).addTo(map);
 
-  async function drawAreaBoundary(placeName, color){
-    const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(placeName)}&polygon_geojson=1&format=json&limit=5`;
-    const res = await fetch(url, {
-      headers: { 'Accept-Language': 'en' }
-    });
-    const data = await res.json();
+  async function drawAreaBoundary(area){
+    try {
+      const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(area.query)}&polygon_geojson=1&format=json&limit=5`;
+      const res = await fetch(url, { headers: { 'Accept-Language': 'en' } });
+      const data = await res.json();
 
-    const boundary = data.find(place =>
-      place.geojson &&
-      (place.geojson.type === 'Polygon' || place.geojson.type === 'MultiPolygon')
-    );
+      const boundary = data.find(place =>
+        place.geojson &&
+        (place.geojson.type === 'Polygon' || place.geojson.type === 'MultiPolygon')
+      );
 
-    if (boundary){
-      L.geoJSON(boundary.geojson, {
-        style: {
-          color: color,
-          weight: 2,
-          fillColor: '#a9a32f',
-          fillOpacity: 0.22
-        }
-      }).addTo(map);
-    } else {
-      console.warn(`No polygon boundary found for "${placeName}"`);
+      if (boundary){
+        boundaryLayers[area.key] = L.geoJSON(boundary.geojson, { style: baseStyle }).addTo(map);
+        if (selectedKey === area.key) selectArea(area.key); // clicked before it finished loading
+      } else {
+        console.warn(`No polygon boundary found for "${area.query}"`);
+      }
+    } catch (err){
+      console.warn(`Could not load boundary for "${area.query}"`, err);
     }
   }
 
-  const areaNames = [
-    'Las Vegas, NV',
-    'Summerlin, Las Vegas, NV',
-    'North Las Vegas, NV',
-    'Henderson, NV'
-  ];
-
-  areaNames.forEach((name, i) => {
-    setTimeout(() => drawAreaBoundary(name, '#b4843756'), i * 1100);
+  areas.forEach((area, i) => {
+    setTimeout(() => drawAreaBoundary(area), i * 1100);
   });
 
   const pinIcon = L.divIcon({
@@ -246,14 +242,55 @@ if (mapContainer){
   });
 
   areas.forEach(area => {
-    L.marker(area.coords, { icon: pinIcon })
-      .addTo(map)
-      .bindPopup(area.name);
+    L.marker(area.coords, { icon: pinIcon }).addTo(map).bindPopup(area.name);
   });
 
   map.setView([36.15, -115.15], 10);
-
   map.on('click', () => map.scrollWheelZoom.enable());
+
+  // ---- Highlight an area (used by the footer links and the list under the map) ----
+  const areaButtons = document.querySelectorAll('[data-area]');
+
+  function selectArea(key){
+    selectedKey = key;
+
+    Object.entries(boundaryLayers).forEach(([k, layer]) => {
+      layer.setStyle(k === key ? highlightStyle : baseStyle);
+    });
+
+    const layer = boundaryLayers[key];
+    if (layer){
+      layer.bringToFront();
+      map.flyToBounds(layer.getBounds(), { padding: [20, 20] });
+    } else {
+      map.flyTo(areas.find(a => a.key === key).coords, 11);
+    }
+
+    areaButtons.forEach(b => {
+      const on = b.dataset.area === key;
+      if (b.tagName === 'BUTTON'){
+        b.setAttribute('aria-pressed', String(on));
+      } else if (on){
+        b.setAttribute('aria-current', 'true');
+      } else {
+        b.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  areaButtons.forEach(el => {
+    el.addEventListener('click', (e) => {
+      if (el.tagName === 'A') e.preventDefault(); // stay on this page, just highlight
+      selectArea(el.dataset.area);
+      if (el.closest('footer')){
+        document.getElementById('map').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+
+  // Arriving from another page via index.html?area=summerlin#map
+  const startArea = new URLSearchParams(window.location.search).get('area');
+  if (startArea && areas.some(a => a.key === startArea)) selectArea(startArea);
 }
 
 // Quote form submission — only runs on pages with #quoteForm
