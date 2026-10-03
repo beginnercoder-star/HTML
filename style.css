@@ -25,9 +25,12 @@ html{
     overflow-y: scroll;
     scrollbar-gutter: stable;
     scroll-padding-top: var(--header-offset);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 body{
     position: relative;
+    font-family: "Tinos", "Times New Roman", Times, serif;
 }
 body::before{
     content: "";
@@ -118,7 +121,8 @@ nav img{
     bottom: 0;
     text-align: left;
     z-index: 2;
-    right: -200px;
+    right: -250px;
+    overflow-y: auto;
     transition: 1s;
 }
 .menu ul{
@@ -151,6 +155,53 @@ nav img{
     width: 100%;
 }
 
+.menu ul li .submenuToggle{
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+    font-size: 28px;
+    color: #d8dbde;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.submenuToggle i{
+    font-size: 0.55em;
+    transition: transform 0.2s ease;
+}
+.submenuToggle[aria-expanded="true"] i{
+    transform: rotate(180deg);
+}
+.menu .submenu{
+    display: none;
+    list-style: none;
+    padding: 6px 0 0 6px;
+}
+.menu .hasSubmenu.open .submenu{
+    display: block;
+}
+.menu .submenu li{
+    display: block;
+    padding: 0;
+}
+.menu .submenu li a{
+    display: block;
+    padding: 9px 0;
+    font-size: 17px;
+    white-space: normal;
+    color: #d8dbde;
+}
+.menu .submenu li a:hover,
+.menu .submenu li a[aria-current="page"]{
+    color: var(--gold);
+}
+.menu .hasSubmenu::after,
+.menu .submenu li::after{
+    display: none;
+}
 /* Mobile navigation icons (real <button> elements) */
 nav .fa-xmark{
     background: none;
@@ -223,8 +274,8 @@ nav .fa-bars{
             url(images/exterior/IMG_0167.jpg);
     background-size: auto 140%;
     background-position: center 20%;
+    min-height: 110vw;
     background-repeat: no-repeat;
-    min-height: 53vh;
     padding: 45px 18px;
     display: flex;
     justify-content: center;
@@ -590,6 +641,7 @@ nav .fa-bars{
     overflow: hidden;
     border: 2px solid var(--navy-card);
     flex-shrink: 0;
+    filter: saturate(0.85) contrast(1.05);
 }
 .ownerPhoto img{
     width: 100%;
@@ -851,6 +903,16 @@ hr{
 .viewGalleryButton:hover{
     background: var(--gold-bright);
     color: var(--navy-dark);
+}
+.fullGalleryItem video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.galleryLinkRow{
+    text-align: center;
+    margin: 30px 0;
 }
 
 /* ==========================================
@@ -1252,9 +1314,9 @@ footer{
     color: white;
     background-color: var(--navy-card);
     text-align: left;
-    margin: -80px 10px 40px 10px;
+    margin: -80px 0 40px;
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1279,13 +1341,14 @@ footer{
 .oneLine a{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     margin-bottom: 10px;
 }
 .contactInfo i{
     background-color: rgba(1, 5, 20, 0.2);
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1302,7 +1365,9 @@ footer{
 .contactInfo span{
     color: #ffffff;
     font-weight: 550;
-    font-size: 16px;
+    font-size: min(3.9vw, 16px);
+    min-width: 0;
+    overflow: anywhere;
 }
 
 /* Footer bottom section */
@@ -1327,7 +1392,7 @@ footer{
 }
 .bottomFooter ul li{
     margin-bottom: 12px;
-    font-size: 20px;
+    font-size: min(4.8vw,20px);
     color: rgb(242, 237, 237);
     list-style: none;
 }
@@ -1349,11 +1414,13 @@ footer{
 }
 
 /* Quick links */
-.quickLinks a{
+.quickLinks a,
+.footerServices a{
     text-decoration: none;
     color: white;
 }
-.quickLinks a:hover p{
+.quickLinks a:hover p,
+.footerServices a:hover p{
     color: var(--gold-bright);
 }
 /* Social icons */
@@ -1639,7 +1706,50 @@ input[type="file"]::file-selector-button{
 .processPhotoWide{
     grid-column: span 2;
 }
+/* ==========================================
+   FINISHED-ROOM INSPIRATION
+   ========================================== */
+.roomPairs{
+    max-width: 1100px;
+    margin: 70px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+.roomPairs .serviceDetailHeader{
+    text-align: left;
+}
+.roomPairs .serviceDetailHeader p{
+    margin: 0;
+    max-width: 700px;
+}
+.roomPair{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: start;
+}
+.roomInspiration{ order: 1; }
+.roomPaint{ order: 2; }
+.roomPair figure{
+    margin: 0;
+}
+.roomPair img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+.roomPair figcaption{
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy-dark);
+    text-align: center;
+}
 
+    
 /* ==========================================
    GALLERY.HTML
    ========================================== */
@@ -1753,7 +1863,176 @@ input[type="file"]::file-selector-button{
     margin: 30px auto 50px;
     padding: 0 20px;
 }
-
+/*Services pages*/
+.servicesIntro .serviceTitle{
+    white-space: normal;
+}
+.serviceHeroImage{
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+.serviceHeroImage img{
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--gold);
+    display: block;
+}
+.serviceDetailHeader{
+    text-align: center;
+}
+.serviceDetailHeader p{
+    margin: 0 auto;
+}
+.serviceList{
+    list-style: none;
+    max-width: 600px;
+    margin: 24px auto 0;
+    display: grid;
+    gap: 12px;
+    text-align: left;
+}
+.serviceList li{
+    position: relative;
+    padding-left: 32px;
+    color: #333;
+    font-size: 17px;
+    line-height: 1.5;
+}
+.serviceList li::before{
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--gold-bright);
+    font-weight: 700;
+}
+.faq{
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+.faq h2{
+    color: var(--navy-dark);
+    font-size: clamp(24px, 6vw, 28px);
+    text-align: center;
+    margin-bottom: 20px;
+}
+.faq details{
+    border-bottom: 1px solid rgba(10, 27, 61, 0.2);
+    padding: 14px 0;
+}
+.faq summary{
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--navy-dark);
+}
+.faq details p{
+    margin-top: 10px;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+.otherServices{
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+.otherServices h2{
+    color: var(--navy-dark);
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+.otherServices ul{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.otherServices a{
+    display: inline-block;
+    border: 2px solid var(--navy-dark);
+    color: var(--navy-dark);
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.otherServices a:hover{
+    background: var(--navy-dark);
+    color: var(--cream);
+}
+/*why-choose cards and book now*/
+.whyList{
+    list-style: none;
+    max-width: 700px;
+    margin: 24px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+.whyList li{
+    background: none;
+    
+    padding: 14px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.whyList strong{
+    color: var(--navy-dark);
+    font-size: 17px;
+}
+.whyList span{
+    color: #555;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.ctaBand{
+    background: var(--navy-dark);
+    border-top: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    border-radius: 6px;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 32px 20px;
+    text-align: center;
+}
+.ctaBand h2{
+    color: var(--cream);
+    font-size: clamp(22px, 6vw, 28px);
+    margin-bottom: 10px;
+}
+.ctaBand p{
+    color: rgba(243, 241, 237, 0.8);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 520px;
+    margin: 0 auto;
+}
+.ctaBandButton{
+    display: inline-block;
+    margin-top: 20px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+    color: var(--navy-dark);
+    padding: 14px 38px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.ctaBandButton:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(219, 170, 92, 0.35);
+}
 /* ==========================================
    BREAKPOINT 1: Larger Mobile / Small Tablets (480px and up)
    Restores the values that were tuned for mobile only.
@@ -1770,7 +2049,8 @@ input[type="file"]::file-selector-button{
     nav img{
         height: 90px;
     }
-    .menu ul li a{
+    .menu ul li a,
+    .menu ul li .submenuToggle{
         font-size: 22px;
     }
     nav .fa-xmark{
@@ -1924,6 +2204,7 @@ input[type="file"]::file-selector-button{
         height: auto;
         width: auto;
         text-align: right;
+        overflow: visible;
     }
     .menu ul{
         padding: 0;
@@ -1941,6 +2222,37 @@ input[type="file"]::file-selector-button{
     nav .fa-xmark,
     nav .fa-bars{
         display: none;
+    }
+    .menu .hasSubmenu{
+        position: relative;
+    }
+    .menu ul li .submenuToggle{
+        color: #120202;
+        font-size: 20px;
+    }
+    .menu .submenu{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 240px;
+        background: var(--cream);
+        border: 1px solid rgba(10, 27, 61, 0.15);
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba(10, 27, 61, 0.18);
+        padding: 8px 0;
+        text-align: left;
+        z-index: 200;
+    }
+    .menu .submenu li a{
+        padding: 10px 18px;
+        font-size: 17px;
+        color: #120202;
+        white-space: nowrap;
+    }
+    .menu .submenu li a:hover,
+    .menu .submenu li a[aria-current="page"]{
+        background: var(--gold);
+        color: var(--navy-dark);
     }
 
     /* Trust badges */

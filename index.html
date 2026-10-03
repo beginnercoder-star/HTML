@@ -17,6 +17,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
@@ -57,7 +60,7 @@
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "reviewCount": "20"
+        "reviewCount": "21"
       }
     }
 
@@ -73,7 +76,16 @@
         <button class="fa-solid fa-xmark" onclick="hideMenu()" aria-label="Close menu"></button>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li class="hasSubmenu">
+            <button type="button" class="submenuToggle" aria-expanded="false" aria-controls="servicesSubmenu">Services <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            <ul class="submenu" id="servicesSubmenu">
+              <li><a href="services.html">All Services</a></li>
+              <li><a href="exterior-painting.html">Exterior Painting</a></li>
+              <li><a href="interior-painting.html">Interior Painting</a></li>
+              <li><a href="cabinet-refinishing.html">Cabinet Refinishing</a></li>
+              <li><a href="commercial-painting.html">Commercial Painting</a></li>
+            </ul>
+          </li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="review.html">Reviews</a></li>
           <li><a href="booking.html" aria-label="Book Now – request a painting quote">Book Now</a></li>
@@ -483,6 +495,16 @@
           <li><a href="booking.html" aria-label="Book Now – request a painting quote"><p>Book Now</p></a></li>
           <li><a href="privacy-policy.html"><p>Privacy Policy</p></a></li>
         </ul>   
+      </div>
+
+      <h3>Services</h3>
+      <div class="footerServices">
+        <ul>
+          <li><a href="interior-painting.html"><p>Interior Painting</p></a></li>
+          <li><a href="exterior-painting.html"><p>Exterior Painting</p></a></li>
+          <li><a href="commercial-painting.html"><p>Commercial Painting</p></a></li>
+          <li><a href="cabinet-refinishing.html"><p>Cabinet Refinishing</p></a></li>
+        </ul>
       </div>
 
       <h3>Follow Us On</h3>

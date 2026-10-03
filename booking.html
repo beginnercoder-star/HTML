@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Request a free painting quote from Orantes Painting in Las Vegas" />
+    <meta property="og:title" content="Book a Quote | Orantes Painting Company"/>
+    <meta property="og:description" content="Request a free painting quote from Orantes Painting in Las Vegas"/>
+    <meta property="og:image" content="https://orantespaintingllc.com/images/preview.jpg"/>
+    <meta property="og:url" content="https://orantespaintingllc.com/booking.html"/>
+    <meta property="og:type" content="website"/>
     <title>Book a Quote | Orantes Painting Company</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
@@ -23,7 +31,16 @@
         <button class="fa-solid fa-xmark" onclick="hideMenu()" aria-label="Close menu"></button>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li class="hasSubmenu">
+            <button type="button" class="submenuToggle" aria-expanded="false" aria-controls="servicesSubmenu">Services <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            <ul class="submenu" id="servicesSubmenu">
+              <li><a href="services.html">All Services</a></li>
+              <li><a href="exterior-painting.html">Exterior Painting</a></li>
+              <li><a href="interior-painting.html">Interior Painting</a></li>
+              <li><a href="cabinet-refinishing.html">Cabinet Refinishing</a></li>
+              <li><a href="commercial-painting.html">Commercial Painting</a></li>
+            </ul>
+          </li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="review.html">Reviews</a></li>
           <li><a href="booking.html" aria-label="Book Now – request a painting quote">Book Now</a></li>
@@ -158,6 +175,12 @@
           <p>We serve all areas of Las Vegas</p>
           <div id="serviceMap" role="img" aria-label="Interactive map showing our Las Vegas service area, including Summerlin, North Las Vegas, and Henderson"></div>
         </div>
+        <ul class="areaList">
+          <li><button type="button" data-area="lasvegas" aria-pressed="false">Las Vegas</button></li>
+          <li><button type="button" data-area="summerlin" aria-pressed="false">Summerlin</button></li>
+          <li><button type="button" data-area="northlv" aria-pressed="false">North Las Vegas</button></li>
+          <li><button type="button" data-area="henderson" aria-pressed="false">Henderson</button></li>
+        </ul>
       </div>
     </div>
   </main>
@@ -201,8 +224,11 @@
         
       <h3>Service Area</h3>
       <div class="serviceArea">
-        <ul>
-          <li><p>Las Vegas, NV</p></li>
+        <ul class="serviceAreaList">
+          <li><a href="index.html?area=lasvegas#map" data-area="lasvegas">Las Vegas</a></li>
+          <li><a href="index.html?area=summerlin#map" data-area="summerlin">Summerlin</a></li>
+          <li><a href="index.html?area=northlv#map" data-area="northlv">North Las Vegas</a></li>
+          <li><a href="index.html?area=henderson#map" data-area="henderson">Henderson</a></li>
         </ul>
       </div>
 
@@ -216,6 +242,16 @@
           <li><a href="booking.html" aria-label="Book Now – request a painting quote"><p>Book Now</p></a></li>
           <li><a href="privacy-policy.html"><p>Privacy Policy</p></a></li>
         </ul>   
+      </div>
+
+      <h3>Services</h3>
+      <div class="footerServices">
+        <ul>
+          <li><a href="interior-painting.html"><p>Interior Painting</p></a></li>
+          <li><a href="exterior-painting.html"><p>Exterior Painting</p></a></li>
+          <li><a href="commercial-painting.html"><p>Commercial Painting</p></a></li>
+          <li><a href="cabinet-refinishing.html"><p>Cabinet Refinishing</p></a></li>
+        </ul>
       </div>
 
       <h3>Follow Us On</h3>

@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Customer reviews for Orantes Painting in Las Vegas" />
+    <meta property="og:title" content="Reviews | Orantes Painting Company"/>
+    <meta property="og:description" content="Read what customers are saying about their experience with Orantes Painting in Las Vegas."/>
+    <meta property="og:image" content="https://orantespaintingllc.com/images/preview.jpg"/>
+    <meta property="og:url" content="https://orantespaintingllc.com/review.html"/>
+    <meta property="og:type" content="website"/>
     <title>Reviews | Orantes Painting Company</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
 </head>
 <body>
@@ -21,7 +29,16 @@
         <button class="fa-solid fa-xmark" onclick="hideMenu()" aria-label="Close menu"></button>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li class="hasSubmenu">
+            <button type="button" class="submenuToggle" aria-expanded="false" aria-controls="servicesSubmenu">Services <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button>
+            <ul class="submenu" id="servicesSubmenu">
+              <li><a href="services.html">All Services</a></li>
+              <li><a href="exterior-painting.html">Exterior Painting</a></li>
+              <li><a href="interior-painting.html">Interior Painting</a></li>
+              <li><a href="cabinet-refinishing.html">Cabinet Refinishing</a></li>
+              <li><a href="commercial-painting.html">Commercial Painting</a></li>
+            </ul>
+          </li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="review.html">Reviews</a></li>
           <li><a href="booking.html" aria-label="Book Now – request a painting quote">Book Now</a></li>
@@ -57,6 +74,12 @@
       <div class="reviewCard">
         <div class="reviewStars" aria-hidden="true">★★★★★</div>
         <span class="sr-only">5 out of 5 stars</span>
+        <p class="reviewText" lang="es">Excelente servicio, muy buena atención<br>Excelente calidad</p>
+        <p class="reviewAuthor">—Angel C.</p>
+      </div>
+      <div class="reviewCard">
+        <div class="reviewStars" aria-hidden="true">★★★★★</div>
+        <span class="sr-only">5 out of 5 stars</span>
         <p class="reviewText">We had an amazing experience with Orantes Painting LLC! They painted our home along with our kitchen cabinets, doors, and baseboards, and the quality of their work exceeded our expectations.</p>
         <p class="reviewAuthor">— Steve E.</p>
       </div>
@@ -84,8 +107,21 @@
         <p class="reviewText">Jeff and his team are excellent. Their work, professionalism, cleanliness and efficiency is unmatched. The attention to detail and listening to what we wanted helped make the process very smooth. They did our entire exterior and interior. Highly recommend!</p>
         <p class="reviewAuthor">— Janine J.</p>
       </div>
-      <!-- add your remaining 3 reviews here in the same format -->
+      <div class="reviewCard">
+        <div class="reviewStars" aria-hidden="true">★★★★★</div>
+        <span class="sr-only">5 out of 5 stars</span>
+        <p class="reviewText">Orantes Painting was super responsive and helpful in setting up an appointment. They painted my condo in one day, leaving it looking great. I appreciate that they cleaned up everything and were very easy to work with the whole time they were here.</p>
+        <p class="reviewAuthor">— AD</p>
+      </div>
+      <div class="reviewCard">
+        <div class="reviewStars" aria-hidden="true">★★★★★</div>
+        <span class="sr-only">5 out of 5 stars</span>
+        <p class="reviewText">Great experience! The painting company did an amazing job, professional, friendly, and the results look beautiful. Highly recommend!</p>
+        <p class="reviewAuthor">— Jenny S</p>
+      </div>
+      <!-- add extra reviews here in the same format -->
     </div>
+    
 
     <div class="buttonContainer">
       <a href="booking.html" class="contactButton"><h3>Get a Free Quote</h3></a>
@@ -125,12 +161,17 @@
           <li><span><i class="fa-regular fa-clock" aria-hidden="true"></i></span> Sunday: Closed</li>
         </ul>
       </div>
+
       <h3>Service Area</h3>
       <div class="serviceArea">
-        <ul>
-          <li><p>Las Vegas, NV</p></li>
+        <ul class="serviceAreaList">
+          <li><a href="index.html?area=lasvegas#map" data-area="lasvegas">Las Vegas</a></li>
+          <li><a href="index.html?area=summerlin#map" data-area="summerlin">Summerlin</a></li>
+          <li><a href="index.html?area=northlv#map" data-area="northlv">North Las Vegas</a></li>
+          <li><a href="index.html?area=henderson#map" data-area="henderson">Henderson</a></li>
         </ul>
       </div>
+
       <h3>Quick Links</h3>
       <div class="quickLinks">
         <ul>
@@ -142,6 +183,17 @@
           <li><a href="privacy-policy.html"><p>Privacy Policy</p></a></li>
         </ul>   
       </div>
+
+      <h3>Services</h3>
+      <div class="footerServices">
+        <ul>
+          <li><a href="interior-painting.html"><p>Interior Painting</p></a></li>
+          <li><a href="exterior-painting.html"><p>Exterior Painting</p></a></li>
+          <li><a href="commercial-painting.html"><p>Commercial Painting</p></a></li>
+          <li><a href="cabinet-refinishing.html"><p>Cabinet Refinishing</p></a></li>
+        </ul>
+      </div>
+
       <h3>Follow Us On</h3>
       <div class="socialIcon">
         <!--add Javascript to open in a new page-->
